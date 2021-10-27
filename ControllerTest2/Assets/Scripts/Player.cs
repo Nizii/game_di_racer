@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
         } 
         else
         {
-            transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            //transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
         }
         //rb.AddForce(forceDirection, ForceMode.Impulse);
         //forceDirection = Vector3.zero;
