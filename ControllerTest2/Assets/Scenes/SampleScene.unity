@@ -519,7 +519,7 @@ Transform:
   m_LocalScale: {x: 5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &400417216
 GameObject:
@@ -996,7 +996,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &775678795
 GameObject:
@@ -1411,7 +1411,7 @@ Transform:
   m_LocalScale: {x: 5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &948484472
 GameObject:
@@ -2010,7 +2010,7 @@ Transform:
   m_Children:
   - {fileID: 781788653}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1278078968
 MonoBehaviour:
@@ -2083,7 +2083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementForce: 5
-  maxSpeed: 500
+  rotationSpeed: 100
+  maxSpeed: 50
   playerCamera: {fileID: 963194227}
 --- !u!1 &1333094072
 GameObject:
@@ -2975,7 +2976,7 @@ Transform:
   m_LocalScale: {x: 100, y: 0.3, z: 3000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2056169549
 GameObject:
@@ -3071,7 +3072,7 @@ Transform:
   m_LocalScale: {x: 5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2093985490
 GameObject:
