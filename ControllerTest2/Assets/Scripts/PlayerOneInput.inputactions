@@ -9,15 +9,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "7e1d9210-ac00-4e9d-8503-261b482f6bbf",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Accelerate",
-                    "type": "Value",
-                    "id": "b70af3bf-f2f5-4ba4-930c-7abecff47e95",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": ""
                 }
