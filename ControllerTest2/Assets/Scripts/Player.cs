@@ -10,9 +10,6 @@ public class Player : MonoBehaviour
     private PlayerOneInput playerOneInput;
     private InputAction move;
     private Rigidbody rb;
-    public float rotationSpeed = 20f;
-    public float maxSpeed = 100;
-    public float currentSpeed = 0;
 
     private void Awake()
     {
@@ -33,30 +30,22 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, 60.0f);
         if (move.ReadValue<Vector2>().x > 0f)
         {
-            rb.AddTorque(Vector3.up * 1f, ForceMode.Impulse);
-            rb.AddRelativeForce(Vector3.right * 100);
-            //rb.AddRelativeForce(Vector3.forward * 10);
-
+            rb.AddTorque(Vector3.up * 100f, ForceMode.Impulse);
+            rb.AddRelativeForce(Vector3.right * 20f);
         }
         
         if (move.ReadValue<Vector2>().x < 0f)
         {
-            rb.AddTorque(-Vector3.up * 1f, ForceMode.Impulse);
-            rb.AddRelativeForce(Vector3.left * 100);
-            //aaawrb.AddRelativeForce(Vector3.forward * 10);
+            rb.AddTorque(-Vector3.up * 100f, ForceMode.Impulse);
+            rb.AddRelativeForce(Vector3.left * 20f);
         }
         
         if (move.ReadValue<Vector2>().x == 0f)
         {
             rb.AddRelativeForce(Vector3.forward * 20);
         }
-    }
-
-    private void Update()
-    {
-
-
     }
    }
