@@ -31,26 +31,32 @@ public class Player : MonoBehaviour
         playerOneInput.PlayerOne.Disable();
     }
 
+    private void FixedUpdate()
+    {
+        if (move.ReadValue<Vector2>().x > 0f)
+        {
+            rb.AddTorque(Vector3.up * 1f, ForceMode.Impulse);
+            rb.AddRelativeForce(Vector3.right * 100);
+            //rb.AddRelativeForce(Vector3.forward * 10);
+
+        }
+        
+        if (move.ReadValue<Vector2>().x < 0f)
+        {
+            rb.AddTorque(-Vector3.up * 1f, ForceMode.Impulse);
+            rb.AddRelativeForce(Vector3.left * 100);
+            //aaawrb.AddRelativeForce(Vector3.forward * 10);
+        }
+        
+        if (move.ReadValue<Vector2>().x == 0f)
+        {
+            rb.AddRelativeForce(Vector3.forward * 20);
+        }
+    }
+
     private void Update()
     {
 
-        rb.AddForce(Vector3.forward * 20f);
 
-
-        if (move.ReadValue<Vector2>().x > 0.1f)
-        {
-            rb.AddTorque(Vector3.up * 10f, ForceMode.Impulse);
-            rb.AddForce(Vector3.right * 10f, ForceMode.Impulse);
-       
-        } 
-        else if (move.ReadValue<Vector2>().x < -0.1f)
-        {
-            rb.AddTorque(-Vector3.up * 10f, ForceMode.Impulse);
-            rb.AddForce(Vector3.left * 10f, ForceMode.Impulse);
-        } 
-        else
-        {
-
-        }        
     }
-}
+   }
