@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         }
         */
 
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, 300.0f);
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, 100.0f);
 
         //left
         if (move.ReadValue<Vector2>().x > 0f)
@@ -60,9 +60,9 @@ public class Player : MonoBehaviour
             Debug.Log("Left " + move.ReadValue<Vector2>().x);
             JetRotation_Y = jetTransform.localEulerAngles.y + 2f;
 
-            if (JetRotation_Y > 30f && JetRotation_Y < 270f)
+            if (JetRotation_Y > 20f && JetRotation_Y < 270f)
             {
-                JetRotation_Y = 30f;
+                JetRotation_Y = 20f;
             }
 
             Vector3 newRotation = new Vector3(0f, JetRotation_Y, 0f);
