@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private float JetRotation_Y = 0f;
     public Transform jetTransform;
-    private float speed = 5f;
+    private float speed = 2f;
 
     private void Awake()
     {
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
         */
 
         Debug.Log(move.ReadValue<Vector2>().x);
-        Vector3 steeringInput = new Vector3(move.ReadValue<Vector2>().x * 0.1f, 0, 0);
+        Vector3 steeringInput = new Vector3(move.ReadValue<Vector2>().x * 0.05f, 0, 0);
         Vector3 newForward = transform.rotation * steeringInput + transform.forward;
         transform.rotation = Quaternion.LookRotation(newForward);
         transform.position += transform.forward * speed;
