@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     private PlayerOneInput playerOneInput;
     private InputAction move;
     private Rigidbody rb;
-    private float WaterJetRotation_Y = 0f;
-    public Transform waterJetTransform;
+    private float JetRotation_Y = 0f;
+    public Transform jetTransform;
 
     private void Awake()
     {
@@ -58,31 +58,31 @@ public class Player : MonoBehaviour
         if (move.ReadValue<Vector2>().x > 0f)
         {
             Debug.Log("Left " + move.ReadValue<Vector2>().x);
-            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y + 2f;
+            JetRotation_Y = jetTransform.localEulerAngles.y + 2f;
 
-            if (WaterJetRotation_Y > 30f && WaterJetRotation_Y < 270f)
+            if (JetRotation_Y > 30f && JetRotation_Y < 270f)
             {
-                WaterJetRotation_Y = 30f;
+                JetRotation_Y = 30f;
             }
 
-            Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
+            Vector3 newRotation = new Vector3(0f, JetRotation_Y, 0f);
 
-            waterJetTransform.localEulerAngles = newRotation;
+            jetTransform.localEulerAngles = newRotation;
         }
 
         //right
         if (move.ReadValue<Vector2>().x < 0f)
         {
-            WaterJetRotation_Y = waterJetTransform.localEulerAngles.y - 2f;
+            JetRotation_Y = jetTransform.localEulerAngles.y - 2f;
 
-            if (WaterJetRotation_Y < 330f && WaterJetRotation_Y > 90f)
+            if (JetRotation_Y < 330f && JetRotation_Y > 90f)
             {
-                WaterJetRotation_Y = 330f;
+                JetRotation_Y = 330f;
             }
 
-            Vector3 newRotation = new Vector3(0f, WaterJetRotation_Y, 0f);
+            Vector3 newRotation = new Vector3(0f, JetRotation_Y, 0f);
 
-            waterJetTransform.localEulerAngles = newRotation;
+            jetTransform.localEulerAngles = newRotation;
         }
 
         if (move.ReadValue<Vector2>().x == 0f)
