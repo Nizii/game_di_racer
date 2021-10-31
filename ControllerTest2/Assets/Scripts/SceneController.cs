@@ -20,7 +20,7 @@ public class SceneController : MonoBehaviour
 
     public void ChangeMyScene()
     {
-        SceneManager.LoadScene("GetReadyScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Race", LoadSceneMode.Single);
     }
 
     // Quit Game
