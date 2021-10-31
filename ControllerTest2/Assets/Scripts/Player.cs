@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private float JetRotation_Y = 0f;
     public Transform jetTransform;
-    private float speed = 1f;
+    private float speed = 4f;
 
     private void Awake()
     {
