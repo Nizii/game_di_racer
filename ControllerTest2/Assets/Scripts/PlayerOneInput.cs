@@ -25,6 +25,22 @@ public class @PlayerOneInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Press"",
+                    ""type"": ""Button"",
+                    ""id"": ""832e7163-de2c-47bd-8799-860409c9c6ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold""
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""d22d1a88-98fd-45be-9c3b-3af436fcf128"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -38,6 +54,39 @@ public class @PlayerOneInput : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89a31e6a-248d-49ae-b7f0-853fb0586721"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3b490ae-9cbc-413d-9362-a09da3b851b8"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1891af4b-1c55-4fa4-b49b-d2051c737447"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -47,6 +96,8 @@ public class @PlayerOneInput : IInputActionCollection, IDisposable
         // PlayerOne
         m_PlayerOne = asset.FindActionMap("PlayerOne", throwIfNotFound: true);
         m_PlayerOne_Move = m_PlayerOne.FindAction("Move", throwIfNotFound: true);
+        m_PlayerOne_Press = m_PlayerOne.FindAction("Press", throwIfNotFound: true);
+        m_PlayerOne_Menu = m_PlayerOne.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -97,11 +148,15 @@ public class @PlayerOneInput : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerOne;
     private IPlayerOneActions m_PlayerOneActionsCallbackInterface;
     private readonly InputAction m_PlayerOne_Move;
+    private readonly InputAction m_PlayerOne_Press;
+    private readonly InputAction m_PlayerOne_Menu;
     public struct PlayerOneActions
     {
         private @PlayerOneInput m_Wrapper;
         public PlayerOneActions(@PlayerOneInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerOne_Move;
+        public InputAction @Press => m_Wrapper.m_PlayerOne_Press;
+        public InputAction @Menu => m_Wrapper.m_PlayerOne_Menu;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOne; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -114,6 +169,12 @@ public class @PlayerOneInput : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMove;
+                @Press.started -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnPress;
+                @Press.performed -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnPress;
+                @Press.canceled -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnPress;
+                @Menu.started -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_PlayerOneActionsCallbackInterface = instance;
             if (instance != null)
@@ -121,6 +182,12 @@ public class @PlayerOneInput : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Press.started += instance.OnPress;
+                @Press.performed += instance.OnPress;
+                @Press.canceled += instance.OnPress;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
@@ -128,5 +195,7 @@ public class @PlayerOneInput : IInputActionCollection, IDisposable
     public interface IPlayerOneActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnPress(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

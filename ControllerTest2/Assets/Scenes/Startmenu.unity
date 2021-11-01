@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: bf4e2227043d1f84faefe1a40557585d, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 83c27f11ed6bab84e943abc2c8fefcb6, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3008391, g: 0.12012378, b: 0.278493, a: 1}
+  m_IndirectSpecularColor: {r: 0.24229944, g: 0.058937445, b: 0.2772751, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -293,6 +293,8 @@ GameObject:
   - component: {fileID: 1228612327}
   - component: {fileID: 1228612329}
   - component: {fileID: 1228612328}
+  - component: {fileID: 1228612331}
+  - component: {fileID: 1228612330}
   m_Layer: 5
   m_Name: StartScreen
   m_TagString: Untagged
@@ -342,7 +344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d547921ed464e7e46874908fe8137a56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2682abf5b211d044b5f460d77501266, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -360,6 +362,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228612326}
   m_CullTransparentMesh: 1
+--- !u!114 &1228612330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228612326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5d77c584bea0b63479916f1733f8fbec, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerOne
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1228612331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228612326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5428d7e853b1464eb935cfaaff806fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1447104498
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b10da543688e369479e06dff848f1c0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8990799944f686b4da62ffd1ca58bd10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -662,10 +706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cf5d2a1e3b171499d968bc7bf0e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 1447104504}
-  hover: {fileID: 8300000, guid: 9f2ad25f8051d1c499284db1cf6145f9, type: 3}
-  click: {fileID: 8300000, guid: 48958153d9acc804290575c36bf8976e, type: 3}
-  exit: {fileID: 0}
 --- !u!114 &1447104506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,10 +1128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cf5d2a1e3b171499d968bc7bf0e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverSound: {fileID: 1830168484}
-  hover: {fileID: 8300000, guid: 9f2ad25f8051d1c499284db1cf6145f9, type: 3}
-  click: {fileID: 0}
-  exit: {fileID: 8300000, guid: 240542ee080c89c4e86f6cc432a9ee9d, type: 3}
 --- !u!114 &1830168487
 MonoBehaviour:
   m_ObjectHideFlags: 0

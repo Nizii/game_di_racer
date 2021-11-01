@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class HoverButton : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class HoverButton : MonoBehaviour
 
     public void ClickSound()
     {
-        hoverSound.PlayOneShot(click);
+        hoverSound.PlayOneShot(click);        
     }
 
     public void ExitSound()

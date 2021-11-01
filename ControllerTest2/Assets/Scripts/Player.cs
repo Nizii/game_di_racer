@@ -1,20 +1,13 @@
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     private PlayerOneInput playerOneInput;
     private InputAction move;
-    private Rigidbody rb;
-    private float JetRotation_Y = 0f;
     public Transform jetTransform;
     private float speed = 4f;
 
@@ -23,7 +16,6 @@ public class Player : MonoBehaviour
     float startingTime = 3f;
     public TextMeshPro countdownText;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentTime = startingTime;
@@ -31,7 +23,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        rb = this.GetComponent<Rigidbody>();
         playerOneInput = new PlayerOneInput();
     }
 

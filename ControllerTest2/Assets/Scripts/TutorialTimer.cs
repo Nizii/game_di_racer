@@ -4,12 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GetReady : MonoBehaviour
+public class TutorialTimer : MonoBehaviour
 {
     float currentTime = 0f;
     float startingTime = 4f;
 
-    public TextMeshPro countdownText;
+    //public TextMeshPro countdownText;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class GetReady : MonoBehaviour
     void Update()
     {
         currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString("0");
+        //countdownText.text = currentTime.ToString("0");
 
         if (currentTime <= 0)
         {
