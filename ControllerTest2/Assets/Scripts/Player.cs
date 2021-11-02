@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private PlayerOneInput playerOneInput;
     private InputAction move;
     public Transform jetTransform;
-    private float speed = 4f;
+    private float speed = 1f;
 
     //Countdown
     float currentTime = 0f;
