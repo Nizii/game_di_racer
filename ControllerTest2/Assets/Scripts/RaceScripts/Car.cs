@@ -106,6 +106,7 @@ public class Car : MonoBehaviour
 
     public void OnMoveCar(InputAction.CallbackContext value)
     {
+        Debug.Log("my Ray did not hit :(");
         steering = value.ReadValue<Vector2>().x * turnAngle;
     }
     private void DriveCar()
