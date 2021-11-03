@@ -14,6 +14,7 @@ public class trackCreator : MonoBehaviour
     List<Vector3> centerUpVectors = new List<Vector3>();
     List<Vector3> centerPositionVectors = new List<Vector3>();
     List<Vector3> verticesList = new List<Vector3>();
+    List<Vector3> verticesLineList = new List<Vector3>();
     List<int> trianglesList = new List<int>();
 
     Queue<GameObject> trackBorders = new Queue<GameObject>();
@@ -51,6 +52,8 @@ public class trackCreator : MonoBehaviour
 
     private bool gameOver = false;
 
+    private LineRenderer lineRenderer;
+
 
     private Mesh glowLineTL; // Top Left
     private Mesh glowLineTR; // Top Right
@@ -81,6 +84,8 @@ public class trackCreator : MonoBehaviour
         glowLineTR = new Mesh();
         glowLineSL = new Mesh();
         glowLineSR = new Mesh();
+
+        lineRenderer = GetComponent<LineRenderer>();
 
         GameObject glowLineTLGO = new GameObject("GlowLineTopLeft");
         glowLineTLGO.transform.parent = this.transform;
@@ -189,6 +194,13 @@ public class trackCreator : MonoBehaviour
         verticesList.Add(vertex5);
         verticesList.Add(vertex6);
         verticesList.Add(vertex7);
+
+        if(physicUpdateCount % 8 == 0)
+        {
+
+            verticesLineList.Add(vertex0);
+            verticesLineList.Add(vertex1);
+        }
 
         //TL Line
         glowLineTLVerticesList.Add(vertex2 - trackHead.transform.right * .3f);
@@ -371,6 +383,13 @@ public class trackCreator : MonoBehaviour
 
         mesh.vertices = verticesList.ToArray();
         mesh.triangles = trianglesList.ToArray();
+        //Vector2[] uvs = new Vector2[mesh.vertices.Length];
+
+        //for (int i = 0; i < uvs.Length; i++)
+        //{
+        //    uvs[i] = new Vector2(mesh.vertices[i].x, mesh.vertices[i].z);
+        //}
+        //mesh.uv = uvs;
 
         mesh.RecalculateNormals();
 
@@ -393,9 +412,19 @@ public class trackCreator : MonoBehaviour
         glowLineSR.vertices = glowLineSRVerticesList.ToArray();
         glowLineSR.triangles = glowLineSRTrianglesList.ToArray();
         glowLineSR.RecalculateNormals();
+
+
+        Line();
+    }
+    void Line()
+    {
+
+        lineRenderer.SetVertexCount(verticesLineList.Count);
+        lineRenderer.SetPositions(verticesLineList.ToArray());
+
     }
 
-    bool ColliderContainsPoint(Collider colliderToCheck, Vector3 posToCheck)
+bool ColliderContainsPoint(Collider colliderToCheck, Vector3 posToCheck)
     {
         Vector3 offset = colliderToCheck.bounds.center - posToCheck;
         Ray inputRay = new Ray(posToCheck, offset.normalized);
