@@ -15,110 +15,6 @@ public class @ControllerInput : IInputActionCollection, IDisposable
     ""name"": ""ControllerInput"",
     ""maps"": [
         {
-            ""name"": ""PlayerOne"",
-            ""id"": ""9ac47645-8caa-4feb-9201-1f9912ad0fb1"",
-            ""actions"": [
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""7e1d9210-ac00-4e9d-8503-261b482f6bbf"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""a0835821-fc80-41ed-9b2f-7716f5a502cc"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""6545df62-a093-48c7-8272-dbaac06f8a72"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""3f565c86-d0c6-40b2-a9e7-9cc8a9db174d"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""ed4ece6d-fc0f-4805-a35e-0ea352630b45"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""7a9b22bb-5f88-4e67-88bc-7b66e15ff5c2"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller1"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""8a68665e-72b0-4c86-9759-7cbc2d816ba4"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller1"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""481e6d40-edbb-4447-bfb4-b53c91f43c4e"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller2"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cd86e5b0-44ba-46c7-8417-e09495801d16"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller2"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""Menu"",
             ""id"": ""0423e94e-ab4f-41df-8238-ea37b221ead1"",
             ""actions"": [
@@ -182,6 +78,60 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Tracker"",
+            ""id"": ""4682abc6-3b0b-4aa0-86b0-614316b5b62d"",
+            ""actions"": [
+                {
+                    ""name"": ""TrackMove"",
+                    ""type"": ""Value"",
+                    ""id"": ""c8d8d659-c638-4c94-83ed-a9f9382efb5f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""99c5d310-1eaa-4fbc-84b1-d11cc9e716c2"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller2"",
+                    ""action"": ""TrackMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Racer"",
+            ""id"": ""55a656b6-70d9-4fa9-a74f-789e3159f5ef"",
+            ""actions"": [
+                {
+                    ""name"": ""RacerMove"",
+                    ""type"": ""Value"",
+                    ""id"": ""a52a9ed2-63b3-4fbc-8a28-8d5f28ce6c75"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""00a89acd-0a53-4125-bd7a-53ac2b049b8b"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller1"",
+                    ""action"": ""RacerMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -220,14 +170,17 @@ public class @ControllerInput : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // PlayerOne
-        m_PlayerOne = asset.FindActionMap("PlayerOne", throwIfNotFound: true);
-        m_PlayerOne_Move = m_PlayerOne.FindAction("Move", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_ButtonUp = m_Menu.FindAction("ButtonUp", throwIfNotFound: true);
         m_Menu_ButtonDown = m_Menu.FindAction("ButtonDown", throwIfNotFound: true);
         m_Menu_Play = m_Menu.FindAction("Play", throwIfNotFound: true);
+        // Tracker
+        m_Tracker = asset.FindActionMap("Tracker", throwIfNotFound: true);
+        m_Tracker_TrackMove = m_Tracker.FindAction("TrackMove", throwIfNotFound: true);
+        // Racer
+        m_Racer = asset.FindActionMap("Racer", throwIfNotFound: true);
+        m_Racer_RacerMove = m_Racer.FindAction("RacerMove", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,39 +226,6 @@ public class @ControllerInput : IInputActionCollection, IDisposable
     {
         asset.Disable();
     }
-
-    // PlayerOne
-    private readonly InputActionMap m_PlayerOne;
-    private IPlayerOneActions m_PlayerOneActionsCallbackInterface;
-    private readonly InputAction m_PlayerOne_Move;
-    public struct PlayerOneActions
-    {
-        private @ControllerInput m_Wrapper;
-        public PlayerOneActions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_PlayerOne_Move;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerOne; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerOneActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerOneActions instance)
-        {
-            if (m_Wrapper.m_PlayerOneActionsCallbackInterface != null)
-            {
-                @Move.started -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_PlayerOneActionsCallbackInterface.OnMove;
-            }
-            m_Wrapper.m_PlayerOneActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
-            }
-        }
-    }
-    public PlayerOneActions @PlayerOne => new PlayerOneActions(this);
 
     // Menu
     private readonly InputActionMap m_Menu;
@@ -355,6 +275,72 @@ public class @ControllerInput : IInputActionCollection, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // Tracker
+    private readonly InputActionMap m_Tracker;
+    private ITrackerActions m_TrackerActionsCallbackInterface;
+    private readonly InputAction m_Tracker_TrackMove;
+    public struct TrackerActions
+    {
+        private @ControllerInput m_Wrapper;
+        public TrackerActions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TrackMove => m_Wrapper.m_Tracker_TrackMove;
+        public InputActionMap Get() { return m_Wrapper.m_Tracker; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TrackerActions set) { return set.Get(); }
+        public void SetCallbacks(ITrackerActions instance)
+        {
+            if (m_Wrapper.m_TrackerActionsCallbackInterface != null)
+            {
+                @TrackMove.started -= m_Wrapper.m_TrackerActionsCallbackInterface.OnTrackMove;
+                @TrackMove.performed -= m_Wrapper.m_TrackerActionsCallbackInterface.OnTrackMove;
+                @TrackMove.canceled -= m_Wrapper.m_TrackerActionsCallbackInterface.OnTrackMove;
+            }
+            m_Wrapper.m_TrackerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @TrackMove.started += instance.OnTrackMove;
+                @TrackMove.performed += instance.OnTrackMove;
+                @TrackMove.canceled += instance.OnTrackMove;
+            }
+        }
+    }
+    public TrackerActions @Tracker => new TrackerActions(this);
+
+    // Racer
+    private readonly InputActionMap m_Racer;
+    private IRacerActions m_RacerActionsCallbackInterface;
+    private readonly InputAction m_Racer_RacerMove;
+    public struct RacerActions
+    {
+        private @ControllerInput m_Wrapper;
+        public RacerActions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @RacerMove => m_Wrapper.m_Racer_RacerMove;
+        public InputActionMap Get() { return m_Wrapper.m_Racer; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RacerActions set) { return set.Get(); }
+        public void SetCallbacks(IRacerActions instance)
+        {
+            if (m_Wrapper.m_RacerActionsCallbackInterface != null)
+            {
+                @RacerMove.started -= m_Wrapper.m_RacerActionsCallbackInterface.OnRacerMove;
+                @RacerMove.performed -= m_Wrapper.m_RacerActionsCallbackInterface.OnRacerMove;
+                @RacerMove.canceled -= m_Wrapper.m_RacerActionsCallbackInterface.OnRacerMove;
+            }
+            m_Wrapper.m_RacerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @RacerMove.started += instance.OnRacerMove;
+                @RacerMove.performed += instance.OnRacerMove;
+                @RacerMove.canceled += instance.OnRacerMove;
+            }
+        }
+    }
+    public RacerActions @Racer => new RacerActions(this);
     private int m_Controller1SchemeIndex = -1;
     public InputControlScheme Controller1Scheme
     {
@@ -382,14 +368,18 @@ public class @ControllerInput : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_Controller2SchemeIndex];
         }
     }
-    public interface IPlayerOneActions
-    {
-        void OnMove(InputAction.CallbackContext context);
-    }
     public interface IMenuActions
     {
         void OnButtonUp(InputAction.CallbackContext context);
         void OnButtonDown(InputAction.CallbackContext context);
         void OnPlay(InputAction.CallbackContext context);
+    }
+    public interface ITrackerActions
+    {
+        void OnTrackMove(InputAction.CallbackContext context);
+    }
+    public interface IRacerActions
+    {
+        void OnRacerMove(InputAction.CallbackContext context);
     }
 }

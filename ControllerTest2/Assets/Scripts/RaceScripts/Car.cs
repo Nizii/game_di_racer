@@ -13,6 +13,10 @@ public class Car : MonoBehaviour
     private bool isLeftTurnAllowed = true;
     private bool isRightTurnAllowed = true;
 
+    private float steering;
+    [SerializeField]
+    private float turnAngle = 0.1f;
+
     [SerializeField]
     private trackCreator track;
     // Start is called before the first frame update
@@ -27,13 +31,13 @@ public class Car : MonoBehaviour
     }
     private void OnEnable()
     {
-        move = controllerInput.PlayerOne.Move;
-        controllerInput.PlayerOne.Enable();
+        move = controllerInput.Racer.RacerMove;
+        controllerInput.Racer.Enable();
     }
 
     private void OnDisable()
     {
-        controllerInput.PlayerOne.Disable();
+        controllerInput.Racer.Disable();
     }
 
     // Update is called once per frame
@@ -73,10 +77,15 @@ public class Car : MonoBehaviour
     {
         isLeftTurnAllowed = isRightTurnAllowed = true;
     }
+
+    public void OnMoveCar(InputAction.CallbackContext value)
+    {
+        steering = move.ReadValue<Vector2>().x * turnAngle;
+    }
     private void DriveCar()
     {
         Vector3[] currentCarUp = track.getCurrentCarUp(transform.position);
-        float steering = move.ReadValue<Vector2>().x * 0.1f;
+        //float steering = move.ReadValue<Vector2>().x * 0.1f;
         if(!isLeftTurnAllowed && steering < 0 || !isRightTurnAllowed && steering > 0)
         {
             steering = 0;

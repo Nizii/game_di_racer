@@ -10,6 +10,7 @@ public class trackCreator : MonoBehaviour
 
     private InputAction move;
     private ControllerInput controllerInput;
+    private Vector3 inputVector = new Vector3(0,0,0);
 
     Mesh mesh;
     List<Vector3> centerUpVectors = new List<Vector3>();
@@ -57,13 +58,18 @@ public class trackCreator : MonoBehaviour
     }
     private void OnEnable()
     {
-        move = controllerInput.PlayerOne.Move;
-        controllerInput.PlayerOne.Enable();
+        move = controllerInput.Tracker.TrackMove;
+        controllerInput.Tracker.Enable();
     }
 
     private void OnDisable()
     {
-        controllerInput.PlayerOne.Disable();
+        controllerInput.Tracker.Disable();
+    }
+
+    public void OnMoveTracker(InputAction.CallbackContext value)
+    {
+        inputVector = new Vector3(move.ReadValue<Vector2>().x * yawSpeed * speed, -move.ReadValue<Vector2>().y * pitchSpeed * speed, 0f);
     }
 
 
@@ -100,7 +106,7 @@ public class trackCreator : MonoBehaviour
     private void BuildTrack()
     {
         //Controller Inputs
-        Vector3 inputVector = new Vector3(move.ReadValue<Vector2>().x * yawSpeed * speed, -move.ReadValue<Vector2>().y * pitchSpeed * speed, 0f);
+        //Vector3 inputVector = new Vector3(move.ReadValue<Vector2>().x * yawSpeed * speed, -move.ReadValue<Vector2>().y * pitchSpeed * speed, 0f);
         Vector3 inputVectorY = new Vector3(0f, inputVector.y, 0f);
         Vector3 newForward = trackHead.transform.rotation * inputVector + trackHead.transform.forward;
 

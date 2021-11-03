@@ -1,110 +1,6 @@
 {
-    "name": "PlayerOneInput",
+    "name": "ControllerInput",
     "maps": [
-        {
-            "name": "PlayerOne",
-            "id": "9ac47645-8caa-4feb-9201-1f9912ad0fb1",
-            "actions": [
-                {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "7e1d9210-ac00-4e9d-8503-261b482f6bbf",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "WASD",
-                    "id": "a0835821-fc80-41ed-9b2f-7716f5a502cc",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "6545df62-a093-48c7-8272-dbaac06f8a72",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "3f565c86-d0c6-40b2-a9e7-9cc8a9db174d",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "2D Vector",
-                    "id": "ed4ece6d-fc0f-4805-a35e-0ea352630b45",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "7a9b22bb-5f88-4e67-88bc-7b66e15ff5c2",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller1",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "8a68665e-72b0-4c86-9759-7cbc2d816ba4",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller1",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "481e6d40-edbb-4447-bfb4-b53c91f43c4e",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller2",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cd86e5b0-44ba-46c7-8417-e09495801d16",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller2",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
         {
             "name": "Menu",
             "id": "0423e94e-ab4f-41df-8238-ea37b221ead1",
@@ -165,6 +61,60 @@
                     "processors": "",
                     "groups": "Controller1",
                     "action": "Play",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Tracker",
+            "id": "4682abc6-3b0b-4aa0-86b0-614316b5b62d",
+            "actions": [
+                {
+                    "name": "TrackMove",
+                    "type": "Value",
+                    "id": "c8d8d659-c638-4c94-83ed-a9f9382efb5f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "99c5d310-1eaa-4fbc-84b1-d11cc9e716c2",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller2",
+                    "action": "TrackMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Racer",
+            "id": "55a656b6-70d9-4fa9-a74f-789e3159f5ef",
+            "actions": [
+                {
+                    "name": "RacerMove",
+                    "type": "Value",
+                    "id": "a52a9ed2-63b3-4fbc-8a28-8d5f28ce6c75",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "00a89acd-0a53-4125-bd7a-53ac2b049b8b",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller1",
+                    "action": "RacerMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
