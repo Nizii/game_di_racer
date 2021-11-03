@@ -5491,7 +5491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d777b4d3c9e50f1469aef5ce6938a96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphere: {fileID: 1708072216}
   center: {x: 0, y: 2, z: 50}
   size: {x: 50, y: 50, z: 50}
 --- !u!4 &1478070737
