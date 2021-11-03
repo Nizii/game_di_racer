@@ -29,7 +29,7 @@ public class TutorialController : MonoBehaviour
         if (playerOneInput.Menu.Play.triggered)
         {
             clickSound.PlayOneShot(click);
-            SceneManager.LoadScene("Race");
+            SceneManager.LoadScene("RaceWithTrack");
         }
     }
 }
