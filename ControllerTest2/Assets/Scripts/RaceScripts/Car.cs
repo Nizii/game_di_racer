@@ -19,6 +19,9 @@ public class Car : MonoBehaviour
     [SerializeField]
     private trackCreator track;
 
+    [SerializeField]
+    private bool useStartCountdown = true;
+
     public int maxHealth = 100;
     private int currentHealth;
     public float gameTime = 60f;
@@ -57,14 +60,18 @@ public class Car : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
-
-
         //Countdown
-        currentTime -= 1 * Time.deltaTime;
-        if (currentTime >0) {
-            countdownText.text = currentTime.ToString("0");
+        if(useStartCountdown)
+        {
+            currentTime -= 1 * Time.deltaTime;
+            if (currentTime > 0)
+            {
+                countdownText.text = currentTime.ToString("0");
+            }
+        } 
+        else
+        {
+            currentTime = 0;
         }
         if (currentTime <= 0)
         {
