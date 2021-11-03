@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnObjects : MonoBehaviour
 {
 
-    public GameObject sphere;
     public Vector3 center;
     public Vector3 size;
 
