@@ -326,7 +326,9 @@ public class trackCreator : MonoBehaviour
         } else
         {
             leftColliderGO = new GameObject("leftBorder");
+            leftColliderGO.tag = "Track";
             rightColliderGO = new GameObject("rightBorder");
+            rightColliderGO.tag = "Track";
             leftCollider = leftColliderGO.AddComponent<BoxCollider>();
             rightCollider = rightColliderGO.AddComponent<BoxCollider>();
         }
@@ -356,7 +358,11 @@ public class trackCreator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("my track head collided with:" + other);
+        Debug.Log(other);
+        if(other.tag != "Track" && other.tag != "Player")
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     private void UpdateMesh()
