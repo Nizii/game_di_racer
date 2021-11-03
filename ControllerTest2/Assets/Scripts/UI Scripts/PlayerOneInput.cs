@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/UI Scripts/PlayerOneInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/PlayerOneInput.inputactions'
 
 using System;
 using System.Collections;
