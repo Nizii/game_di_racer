@@ -468,7 +468,7 @@ public class trackCreator : MonoBehaviour
             //Optimze Break Condition!
             if (currentDistance > lastDistance)
             {
-                break;
+                //break;
             }
             lastDistance = currentDistance;
             
