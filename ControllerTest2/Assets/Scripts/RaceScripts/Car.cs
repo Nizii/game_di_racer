@@ -33,6 +33,9 @@ public class Car : MonoBehaviour
     float startingTime = 3f;
     public TextMeshPro countdownText;
 
+    //Health
+    public int damageEdge = 5;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,13 +58,14 @@ public class Car : MonoBehaviour
     private void FixedUpdate()
     {
 
-           
-        
+
+
 
         //Countdown
         currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString("0");
-
+        if (currentTime >0) {
+            countdownText.text = currentTime.ToString("0");
+        }
         if (currentTime <= 0)
         {
             if (physicUpdateCount % 2 == 0)
@@ -91,9 +95,11 @@ public class Car : MonoBehaviour
         {
             case "leftBorder":
                 isLeftTurnAllowed = false;
+                TakeDamage(damageEdge);
                 break;
             case "rightBorder":
                 isRightTurnAllowed = false;
+                TakeDamage(damageEdge);
                 break;
         }
         Debug.Log("hit at: " + other.gameObject.transform.forward);
