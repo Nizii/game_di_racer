@@ -16,6 +16,12 @@ public class Car : MonoBehaviour
     [SerializeField]
     private float turnAngle = 0.1f;
 
+
+    [SerializeField]
+    private float borderBounceAngle = .03f;
+    [SerializeField]
+    private float borderBounceMove = .2f;
+
     [SerializeField]
     private trackCreator track;
 
@@ -104,13 +110,13 @@ public class Car : MonoBehaviour
             {
                 case "leftBorder":
                     isLeftTurnAllowed = false;
-                    transform.position += transform.right * .5f;
-                    turnIntoTrack.x = -.05f;
+                    transform.position += transform.right * borderBounceMove;
+                    turnIntoTrack.x = -borderBounceAngle;
                     break;
                 case "rightBorder":
                     isRightTurnAllowed = false;
-                    transform.position += -transform.right * .5f;
-                    turnIntoTrack.x = .05f;
+                    transform.position += -transform.right * borderBounceMove;
+                    turnIntoTrack.x = borderBounceAngle;
                     break;
             }
             TakeDamage(damageEdge);
