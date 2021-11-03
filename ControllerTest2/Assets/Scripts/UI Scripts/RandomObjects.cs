@@ -8,20 +8,20 @@ public class RandomObjects : MonoBehaviour
     private int yPos;
     public int objectToGenerate;
     public int objectQuantity;
-    private int min = -200;
-    private int max = 200;
+    public int minStreuung = -400;
+    public int maxStreuung = 400;
 
 
     private void Start()
     {
-        while (objectQuantity < 30)
+        while (objectQuantity < 50)
         {
             //objectToGenerate = Random.Range(1, 8);
-            xPos = Random.Range(min, max);
-            yPos = Random.Range(min, max);
-            zPos = Random.Range(min, max);
+            xPos = Random.Range(minStreuung, maxStreuung);
+            yPos = Random.Range(minStreuung, maxStreuung);
+            zPos = Random.Range(minStreuung, maxStreuung);
             GameObject newObject = Instantiate(hochhaus, new Vector3(xPos, yPos, zPos), Quaternion.identity);
-            newObject.transform.localScale = new Vector3(10, 10, 10);
+            newObject.transform.localScale = new Vector3(15, 15, 15);
             /*
             if (objectToGenerate == 1)
             {

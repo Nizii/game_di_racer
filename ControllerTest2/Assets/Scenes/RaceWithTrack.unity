@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406303595}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dce1253aafe19c641a5adbe705920156, type: 3}
   m_Name: 
@@ -1069,6 +1069,8 @@ MonoBehaviour:
   hochhaus: {fileID: 919132149155446097, guid: 3927ab9fcb9bda748bd370461bed9de5, type: 3}
   objectToGenerate: 0
   objectQuantity: 0
+  minStreuung: -400
+  maxStreuung: 400
 --- !u!1 &1431932987
 GameObject:
   m_ObjectHideFlags: 0
