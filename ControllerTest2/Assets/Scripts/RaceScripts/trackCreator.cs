@@ -7,10 +7,8 @@ using UnityEngine.InputSystem;
 public class trackCreator : MonoBehaviour
 {
 
-
-    private InputAction move;
-    private ControllerInput controllerInput;
     private Vector3 inputVector = new Vector3(0,0,0);
+    private float rollInput = 0f;
 
     Mesh mesh;
     List<Vector3> centerUpVectors = new List<Vector3>();
@@ -52,24 +50,12 @@ public class trackCreator : MonoBehaviour
         GetComponent<MeshFilter>().mesh = mesh;
         this.AddVertices();
     }
-    private void Awake()
-    {
-        controllerInput = new ControllerInput();
-    }
-    private void OnEnable()
-    {
-        move = controllerInput.Tracker.TrackMove;
-        controllerInput.Tracker.Enable();
-    }
 
-    private void OnDisable()
-    {
-        controllerInput.Tracker.Disable();
-    }
 
     public void OnMoveTracker(InputAction.CallbackContext value)
     {
-        inputVector = new Vector3(move.ReadValue<Vector2>().x * yawSpeed * speed, -move.ReadValue<Vector2>().y * pitchSpeed * speed, 0f);
+        inputVector = new Vector3(value.ReadValue<Vector2>().x * yawSpeed * speed, -value.ReadValue<Vector2>().y * pitchSpeed * speed, 0f);
+        rollInput = -value.ReadValue<Vector2>().x;
     }
 
 
@@ -112,7 +98,7 @@ public class trackCreator : MonoBehaviour
 
         Vector3 newUP = (trackHead.transform.rotation * inputVectorY + trackHead.transform.up).normalized;
         trackHead.transform.rotation = Quaternion.LookRotation(newForward, newUP);
-        trackHead.transform.Rotate(0f, 0f, -move.ReadValue<Vector2>().x * rollSpeed * speed, Space.Self);
+        trackHead.transform.Rotate(0f, 0f, rollInput * rollSpeed * speed, Space.Self);
         trackHead.transform.position += trackHead.transform.forward * speed;
 
         centerUpVectors.Add(newUP);
