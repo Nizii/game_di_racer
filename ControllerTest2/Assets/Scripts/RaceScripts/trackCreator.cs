@@ -39,9 +39,36 @@ public class trackCreator : MonoBehaviour
     [SerializeField]
     private GameObject trackHead;
 
+
+    [SerializeField]
+    private Material glowLineTopMaterial;
+
+    [SerializeField]
+    private Material glowLineSideMaterial;
+
+
     private int physicUpdateCount = 0;
 
     private bool gameOver = false;
+
+
+    private Mesh glowLineTL; // Top Left
+    private Mesh glowLineTR; // Top Right
+    private Mesh glowLineSL; // Side Left
+    private Mesh glowLineSR; // Sider Right
+
+    private List<Vector3> glowLineTLVerticesList = new List<Vector3>();
+    private List<int> glowLineTLTrianglesList = new List<int>();
+
+    private List<Vector3> glowLineTRVerticesList = new List<Vector3>();
+    private List<int> glowLineTRTrianglesList = new List<int>();
+
+    private List<Vector3> glowLineSLVerticesList = new List<Vector3>();
+    private List<int> glowLineSLTrianglesList = new List<int>();
+
+    private List<Vector3> glowLineSRVerticesList = new List<Vector3>();
+    private List<int> glowLineSRTrianglesList = new List<int>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +76,33 @@ public class trackCreator : MonoBehaviour
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         this.AddVertices();
+
+        glowLineTL = new Mesh();
+        glowLineTR = new Mesh();
+        glowLineSL = new Mesh();
+        glowLineSR = new Mesh();
+
+        GameObject glowLineTLGO = new GameObject("GlowLineTopLeft");
+        glowLineTLGO.transform.parent = this.transform;
+        glowLineTLGO.transform.position = new Vector3(0, 0.01f, 0);
+        glowLineTLGO.AddComponent<MeshFilter>().mesh = glowLineTL;
+        glowLineTLGO.AddComponent<MeshRenderer>().material = glowLineTopMaterial;
+        GameObject glowLineTRGO = new GameObject("GlowLineTopRight");
+        glowLineTRGO.transform.parent = this.transform;
+        glowLineTRGO.AddComponent<MeshFilter>().mesh = glowLineTR;
+        glowLineTRGO.AddComponent<MeshRenderer>().material = glowLineTopMaterial;
+        glowLineTRGO.transform.position = new Vector3(0, 0.01f, 0);
+        GameObject glowLineSLGO = new GameObject("GlowLineSideLeft");
+        glowLineSLGO.transform.parent = this.transform;
+        glowLineSLGO.AddComponent<MeshFilter>().mesh = glowLineSL;
+        glowLineSLGO.AddComponent<MeshRenderer>().material = glowLineSideMaterial;
+        glowLineSLGO.transform.position = new Vector3(0, 0.01f, 0);
+        GameObject glowLineSRGO = new GameObject("GlowLineSideRight");
+        glowLineSRGO.transform.parent = this.transform;
+        glowLineSRGO.AddComponent<MeshFilter>().mesh = glowLineSR;
+        glowLineSRGO.AddComponent<MeshRenderer>().material = glowLineSideMaterial;
+        glowLineSRGO.transform.position = new Vector3(0, 0.01f, 0);
+
     }
 
 
@@ -135,6 +189,22 @@ public class trackCreator : MonoBehaviour
         verticesList.Add(vertex5);
         verticesList.Add(vertex6);
         verticesList.Add(vertex7);
+
+        //TL Line
+        glowLineTLVerticesList.Add(vertex2 - trackHead.transform.right * .3f);
+        glowLineTLVerticesList.Add(vertex4);
+
+        //TR Line
+        glowLineTRVerticesList.Add(vertex5);
+        glowLineTRVerticesList.Add(vertex3 + trackHead.transform.right * .3f);
+
+        //SL Line
+        glowLineSLVerticesList.Add(vertex0);
+        glowLineSLVerticesList.Add(vertex0 - trackHead.transform.right * 0.25f + trackHead.transform.up * 0.5f);
+
+        //SR Line
+        glowLineSRVerticesList.Add(vertex1 + trackHead.transform.right * 0.25f + trackHead.transform.up * 0.5f);
+        glowLineSRVerticesList.Add(vertex1);
     }
 
     private void AddTriangles()
@@ -203,6 +273,42 @@ public class trackCreator : MonoBehaviour
         trianglesList.Add(vertexCount - 1); //15
         trianglesList.Add(vertexCount - 11); //5
         trianglesList.Add(vertexCount - 3); //13
+
+        int vertexCountTL = glowLineTLVerticesList.Count;
+        glowLineTLTrianglesList.Add(vertexCountTL - 4);
+        glowLineTLTrianglesList.Add(vertexCountTL - 3);
+        glowLineTLTrianglesList.Add(vertexCountTL - 1);
+
+        glowLineTLTrianglesList.Add(vertexCountTL - 4);
+        glowLineTLTrianglesList.Add(vertexCountTL - 1);
+        glowLineTLTrianglesList.Add(vertexCountTL - 2);
+
+        int vertexCountTR = glowLineTRVerticesList.Count;
+        glowLineTRTrianglesList.Add(vertexCountTR - 4);
+        glowLineTRTrianglesList.Add(vertexCountTR - 3);
+        glowLineTRTrianglesList.Add(vertexCountTR - 1);
+
+        glowLineTRTrianglesList.Add(vertexCountTR - 4);
+        glowLineTRTrianglesList.Add(vertexCountTR - 1);
+        glowLineTRTrianglesList.Add(vertexCountTR - 2);
+
+        int vertexCountSL = glowLineSRVerticesList.Count;
+        glowLineSLTrianglesList.Add(vertexCountSL - 4);
+        glowLineSLTrianglesList.Add(vertexCountSL - 3);
+        glowLineSLTrianglesList.Add(vertexCountSL - 1);
+
+        glowLineSLTrianglesList.Add(vertexCountSL - 4);
+        glowLineSLTrianglesList.Add(vertexCountSL - 1);
+        glowLineSLTrianglesList.Add(vertexCountSL - 2);
+
+        int vertexCountSR = glowLineSLVerticesList.Count;
+        glowLineSRTrianglesList.Add(vertexCountSR - 4);
+        glowLineSRTrianglesList.Add(vertexCountSR - 3);
+        glowLineSRTrianglesList.Add(vertexCountSR - 1);
+
+        glowLineSRTrianglesList.Add(vertexCountSR - 4);
+        glowLineSRTrianglesList.Add(vertexCountSR - 1);
+        glowLineSRTrianglesList.Add(vertexCountSR - 2);
     }
 
     private void AddColliderBoxes()
@@ -262,6 +368,25 @@ public class trackCreator : MonoBehaviour
 
         mesh.RecalculateNormals();
 
+        glowLineTL.Clear();
+        glowLineTL.vertices = glowLineTLVerticesList.ToArray();
+        glowLineTL.triangles = glowLineTLTrianglesList.ToArray();
+        glowLineTL.RecalculateNormals();
+
+        glowLineTR.Clear();
+        glowLineTR.vertices = glowLineTRVerticesList.ToArray();
+        glowLineTR.triangles = glowLineTRTrianglesList.ToArray();
+        glowLineTR.RecalculateNormals();
+
+        glowLineSL.Clear();
+        glowLineSL.vertices = glowLineSLVerticesList.ToArray();
+        glowLineSL.triangles = glowLineSLTrianglesList.ToArray();
+        glowLineSL.RecalculateNormals();
+
+        glowLineSR.Clear();
+        glowLineSR.vertices = glowLineSRVerticesList.ToArray();
+        glowLineSR.triangles = glowLineSRTrianglesList.ToArray();
+        glowLineSR.RecalculateNormals();
     }
 
     bool ColliderContainsPoint(Collider colliderToCheck, Vector3 posToCheck)
