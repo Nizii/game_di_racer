@@ -97,21 +97,28 @@ public class Car : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("the car hit: " + other.name);
-        switch (other.name)
+        if(other.tag == "Track")
         {
-            case "leftBorder":
-                isLeftTurnAllowed = false;
-                TakeDamage(damageEdge);
-                break;
-            case "rightBorder":
-                isRightTurnAllowed = false;
-                TakeDamage(damageEdge);
-                break;
+            Vector3 turnIntoTrack = new Vector3(0f, 0f, 0f);
+            switch (other.name)
+            {
+                case "leftBorder":
+                    isLeftTurnAllowed = false;
+                    transform.position += transform.right * .5f;
+                    turnIntoTrack.x = -.05f;
+                    break;
+                case "rightBorder":
+                    isRightTurnAllowed = false;
+                    transform.position += -transform.right * .5f;
+                    turnIntoTrack.x = .05f;
+                    break;
+            }
+            TakeDamage(damageEdge);
+            transform.rotation = Quaternion.LookRotation(other.gameObject.transform.forward + other.gameObject.transform.rotation * turnIntoTrack, transform.up);
+
         }
-        Debug.Log("hit at: " + other.gameObject.transform.forward);
-        transform.rotation = Quaternion.LookRotation(other.gameObject.transform.forward, transform.up);
     }
+
     private void OnTriggerExit(Collider other)
     {
         isLeftTurnAllowed = isRightTurnAllowed = true;
