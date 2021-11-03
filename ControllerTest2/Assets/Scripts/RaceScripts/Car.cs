@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Car : MonoBehaviour
 {
@@ -17,30 +18,72 @@ public class Car : MonoBehaviour
 
     [SerializeField]
     private trackCreator track;
+
+    public int maxHealth = 100;
+    private int currentHealth;
+    public float gameTime = 60f;
+
+    //UI
+    public HealthBar healthbar;
+    public HealthText healthText;
+    public TimerText timerText;
+
+    //Countdown
+    float currentTime = 0f;
+    float startingTime = 3f;
+    public TextMeshPro countdownText;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        currentTime = startingTime;
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealt(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Test Healthbar
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
+        }
     }
 
     private void FixedUpdate()
     {
-        if (physicUpdateCount % 2 == 0)
+
+           
+        
+
+        //Countdown
+        currentTime -= 1 * Time.deltaTime;
+        countdownText.text = currentTime.ToString("0");
+
+        if (currentTime <= 0)
         {
-            if (physicUpdateCount > 20) //Head Start for Track
+            if (physicUpdateCount % 2 == 0)
             {
-                this.DriveCar();
+                if (physicUpdateCount > 20) //Head Start for Track
+                {
+                    this.DriveCar();
+                }
+            }
+            physicUpdateCount++;
+
+            //Game Timer
+            gameTime -= 1 * Time.deltaTime;
+            timerText.UpdateText(gameTime);
+            if (gameTime <= 0f)
+            {
+                Debug.Log("Player won the Game");
             }
         }
-           
-        physicUpdateCount++;
     }
+
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("the car hit: " + other.name);
@@ -93,5 +136,17 @@ public class Car : MonoBehaviour
         {
             Debug.Log("my Ray did not hit :(");
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        healthbar.SetHealth(currentHealth);
+        healthText.UpdateText(currentHealth);
+    }
+    public int getHealth()
+    {
+        return currentHealth;
     }
 }
