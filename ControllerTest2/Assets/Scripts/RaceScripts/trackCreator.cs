@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 
 public class trackCreator : MonoBehaviour
 {
-    private TrackBuilderControl trackBuilderControl;
-    private InputAction leftright;
+
+
+    private InputAction move;
+    private ControllerInput controllerInput;
 
     Mesh mesh;
     List<Vector3> centerUpVectors = new List<Vector3>();
@@ -51,19 +53,19 @@ public class trackCreator : MonoBehaviour
     }
     private void Awake()
     {
-        trackBuilderControl = new TrackBuilderControl();
+        controllerInput = new ControllerInput();
     }
     private void OnEnable()
     {
-        leftright = trackBuilderControl.TrackBuilder.LeftRight;
-        trackBuilderControl.TrackBuilder.Enable();
+        move = controllerInput.PlayerOne.Move;
+        controllerInput.PlayerOne.Enable();
     }
 
     private void OnDisable()
     {
-        trackBuilderControl.TrackBuilder.Disable();
+        controllerInput.PlayerOne.Disable();
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -98,13 +100,13 @@ public class trackCreator : MonoBehaviour
     private void BuildTrack()
     {
         //Controller Inputs
-        Vector3 inputVector = new Vector3(leftright.ReadValue<Vector2>().x * yawSpeed * speed, -leftright.ReadValue<Vector2>().y * pitchSpeed * speed, 0f);
+        Vector3 inputVector = new Vector3(move.ReadValue<Vector2>().x * yawSpeed * speed, -move.ReadValue<Vector2>().y * pitchSpeed * speed, 0f);
         Vector3 inputVectorY = new Vector3(0f, inputVector.y, 0f);
         Vector3 newForward = trackHead.transform.rotation * inputVector + trackHead.transform.forward;
 
         Vector3 newUP = (trackHead.transform.rotation * inputVectorY + trackHead.transform.up).normalized;
         trackHead.transform.rotation = Quaternion.LookRotation(newForward, newUP);
-        trackHead.transform.Rotate(0f, 0f, -leftright.ReadValue<Vector2>().x * rollSpeed * speed, Space.Self);
+        trackHead.transform.Rotate(0f, 0f, -move.ReadValue<Vector2>().x * rollSpeed * speed, Space.Self);
         trackHead.transform.position += trackHead.transform.forward * speed;
 
         centerUpVectors.Add(newUP);

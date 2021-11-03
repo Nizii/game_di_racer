@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class Car : MonoBehaviour
 {
 
-    private InputAction upDown;
-    private TrackBuilderControl trackBuilderControl;
+    private InputAction move;
+    private ControllerInput controllerInput;
     private int physicUpdateCount;
 
     private bool isLeftTurnAllowed = true;
@@ -23,17 +23,17 @@ public class Car : MonoBehaviour
 
     private void Awake()
     {
-        trackBuilderControl = new TrackBuilderControl();
+        controllerInput = new ControllerInput();
     }
     private void OnEnable()
     {
-        upDown = trackBuilderControl.TrackBuilder.UpDown;
-        trackBuilderControl.TrackBuilder.Enable();
+        move = controllerInput.PlayerOne.Move;
+        controllerInput.PlayerOne.Enable();
     }
 
     private void OnDisable()
     {
-        trackBuilderControl.TrackBuilder.Disable();
+        controllerInput.PlayerOne.Disable();
     }
 
     // Update is called once per frame
@@ -76,7 +76,7 @@ public class Car : MonoBehaviour
     private void DriveCar()
     {
         Vector3[] currentCarUp = track.getCurrentCarUp(transform.position);
-        float steering = upDown.ReadValue<Vector2>().x * 0.1f;
+        float steering = move.ReadValue<Vector2>().x * 0.1f;
         if(!isLeftTurnAllowed && steering < 0 || !isRightTurnAllowed && steering > 0)
         {
             steering = 0;
