@@ -3,7 +3,22 @@ guid: 3927ab9fcb9bda748bd370461bed9de5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dach
+    second: {fileID: 2100000, guid: 2b81a6be2882bbc4e8f6104ef76a5a8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fenster
+    second: {fileID: 2100000, guid: 48c42cad21c6959458203c21c5599b7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wand
+    second: {fileID: 2100000, guid: 6b79f8852f42406448a2b58b39309f78, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

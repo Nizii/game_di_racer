@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Car : MonoBehaviour
 {
@@ -41,6 +42,14 @@ public class Car : MonoBehaviour
     float currentTime = 0f;
     float startingTime = 3f;
     public TextMeshPro countdownText;
+
+    //GameOver Countdown
+    float currentGameoverTime = 3f;
+    //float startingGameoverTime = 3f;
+
+    //GameOver Sound
+    public AudioSource applauseSound;
+    public AudioClip applause;
 
     //Health
     public int damageEdge = 5;
@@ -96,7 +105,18 @@ public class Car : MonoBehaviour
             if (gameTime <= 0f)
             {
                 Debug.Log("Player won the Game");
+                GameOver();
             }
+        }
+    }
+
+    private void GameOver()
+    {
+        currentGameoverTime -= 1 * Time.deltaTime;
+        if (currentGameoverTime <= 0)
+        {
+            applauseSound.PlayOneShot(applause);
+            SceneManager.LoadScene("End");
         }
     }
 
@@ -132,7 +152,6 @@ public class Car : MonoBehaviour
 
     public void OnMoveCar(InputAction.CallbackContext value)
     {
-        Debug.Log("my Ray did not hit :(");
         steering = value.ReadValue<Vector2>().x * turnAngle;
     }
     private void DriveCar()
@@ -171,6 +190,10 @@ public class Car : MonoBehaviour
 
         healthbar.SetHealth(currentHealth);
         healthText.UpdateText(currentHealth);
+        if(currentHealth <= 0)
+        {
+            SceneManager.LoadScene("End");
+        }
     }
     public int getHealth()
     {
