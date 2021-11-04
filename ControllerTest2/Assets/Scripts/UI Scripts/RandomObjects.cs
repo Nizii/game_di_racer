@@ -37,7 +37,7 @@ public class RandomObjects : MonoBehaviour
                 GameObject newObject = Instantiate(missrateneKugel, new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
                 GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos-115, zPos), Quaternion.identity);
-                newObject2.transform.Rotate(0, 0, 90);
+                newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
             
@@ -46,7 +46,7 @@ public class RandomObjects : MonoBehaviour
                 GameObject newObject = Instantiate(hochhaus, new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
                 GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
-                newObject2.transform.Rotate(0, 0, 90);
+                newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
             
@@ -55,7 +55,7 @@ public class RandomObjects : MonoBehaviour
                 GameObject newObject = Instantiate(pilzlis, new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
                 GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
-                newObject2.transform.Rotate(0, 0, 90);
+                newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
 
@@ -64,7 +64,7 @@ public class RandomObjects : MonoBehaviour
                 GameObject newObject = Instantiate(strassenlaterne, new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
                 GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
-                newObject2.transform.Rotate(0, 0, 90);
+                newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
 
@@ -73,7 +73,7 @@ public class RandomObjects : MonoBehaviour
                 GameObject newObject = Instantiate(alienhotel, new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
                 GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
-                newObject2.transform.Rotate(0, 0, 90);
+                newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
 
@@ -82,7 +82,7 @@ public class RandomObjects : MonoBehaviour
                 GameObject newObject = Instantiate(rundeStationen, new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
                 GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
-                newObject2.transform.Rotate(0, 0, 90);
+                newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
 
