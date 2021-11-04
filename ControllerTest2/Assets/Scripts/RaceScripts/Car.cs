@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Car : MonoBehaviour
 {
@@ -95,6 +96,7 @@ public class Car : MonoBehaviour
             timerText.UpdateText(gameTime);
             if (gameTime <= 0f)
             {
+                SceneManager.LoadScene("End");
                 Debug.Log("Player won the Game");
             }
         }
@@ -132,7 +134,6 @@ public class Car : MonoBehaviour
 
     public void OnMoveCar(InputAction.CallbackContext value)
     {
-        Debug.Log("my Ray did not hit :(");
         steering = value.ReadValue<Vector2>().x * turnAngle;
     }
     private void DriveCar()
@@ -171,6 +172,10 @@ public class Car : MonoBehaviour
 
         healthbar.SetHealth(currentHealth);
         healthText.UpdateText(currentHealth);
+        if(currentHealth <= 0)
+        {
+            SceneManager.LoadScene("End");
+        }
     }
     public int getHealth()
     {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class trackCreator : MonoBehaviour
 {
@@ -148,7 +149,8 @@ public class trackCreator : MonoBehaviour
                     if (trackHeadCollider.bounds.Contains(vertex))
                     {
                         if(ColliderContainsPoint(trackHeadCollider, vertex)){
-                            this.gameOver = true;
+                            SceneManager.LoadScene("End");
+                            //this.gameOver = true;
                         }
                     }
                 }
