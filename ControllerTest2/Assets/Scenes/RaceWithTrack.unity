@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13638,10 +13638,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hochhaus: {fileID: 919132149155446097, guid: 3927ab9fcb9bda748bd370461bed9de5, type: 3}
-  objectToGenerate: 0
-  objectQuantity: 0
-  minStreuung: -400
-  maxStreuung: 400
+  missrateneKugel: {fileID: 919132149155446097, guid: 0ce7a53fc04bc4b0c880e2462bd9c9a3, type: 3}
+  pilzlis: {fileID: 919132149155446097, guid: 7add7d0d588c6429a941d765729ff794, type: 3}
+  strassenlaterne: {fileID: 919132149155446097, guid: e4c5b9e6886df485db26e955528b2464, type: 3}
+  alienhotel: {fileID: 919132149155446097, guid: 05d53d7b49d9e4a26b939868ccdb7a8b, type: 3}
+  rundeStationen: {fileID: 919132149155446097, guid: e5fbe19ab9afd4346a6d4e17fa169974, type: 3}
+  flames: {fileID: 1108193292607361095, guid: 7afb99d0c93174e05be8b6fe7328f742, type: 3}
+  anzahlObjecte: 150
+  streuungObjecte: 1500
+  "objectGr\xF6sse": 15
 --- !u!1 &1431932987
 GameObject:
   m_ObjectHideFlags: 0
