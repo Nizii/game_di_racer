@@ -44,12 +44,11 @@ public class Car : MonoBehaviour
     public TextMeshPro countdownText;
 
     //GameOver Countdown
-    float currentGameoverTime = 3f;
-    //float startingGameoverTime = 3f;
+    //float currentGameoverTime = 3f;
 
     //GameOver Sound
-    public AudioSource applauseSound;
-    public AudioClip applause;
+    //public AudioSource applauseSound;
+    //public AudioClip applause;
 
     //Health
     public int damageEdge = 5;
@@ -105,11 +104,11 @@ public class Car : MonoBehaviour
             if (gameTime <= 0f)
             {
                 Debug.Log("Player won the Game");
-                GameOver();
+                SceneManager.LoadScene("EndRacer");
             }
         }
     }
-
+    /*
     private void GameOver()
     {
         currentGameoverTime -= 1 * Time.deltaTime;
@@ -119,7 +118,7 @@ public class Car : MonoBehaviour
             SceneManager.LoadScene("End");
         }
     }
-
+    */
 
     private void OnTriggerEnter(Collider other)
     {
@@ -190,9 +189,11 @@ public class Car : MonoBehaviour
 
         healthbar.SetHealth(currentHealth);
         healthText.UpdateText(currentHealth);
-        if(currentHealth <= 0)
+        Debug.Log("Nicht Tot " + currentHealth);
+        if (currentHealth <= 0)
         {
-            SceneManager.LoadScene("End");
+            Debug.Log("Tot");
+            SceneManager.LoadScene("EndTracker");
         }
     }
     public int getHealth()

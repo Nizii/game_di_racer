@@ -14,17 +14,24 @@ public class MenuController : MonoBehaviour
     public Transform ButtonPosition3;
     public Transform ButtonPosition4;
 
+    public AudioSource hoverSound;
+    public AudioSource clickSound;
+    public AudioClip click;
+    public AudioClip clickHover;
+
 
     private void OnPlay()
     {
         if (SelectedButton == 1)
         {
             // When the button with the pointer is clicked, this piece of script is activated
+            clickSound.PlayOneShot(click);
             SceneManager.LoadScene("Tutorial");
         }
         else if (SelectedButton == 2)
         {
             // When the button with the pointer is clicked, this piece of script is activated
+            clickSound.PlayOneShot(click);
             Application.Quit();
         }
     }
@@ -35,6 +42,7 @@ public class MenuController : MonoBehaviour
         {
             SelectedButton -= 1;
         }
+        hoverSound.PlayOneShot(clickHover);
         MoveThePointer();
         return;
     }
@@ -45,6 +53,7 @@ public class MenuController : MonoBehaviour
         {
             SelectedButton += 1;
         }
+        hoverSound.PlayOneShot(clickHover);
         MoveThePointer();
         return;
     }

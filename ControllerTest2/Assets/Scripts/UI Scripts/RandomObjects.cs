@@ -9,6 +9,7 @@ public class RandomObjects : MonoBehaviour
     public GameObject alienhotel;
     public GameObject rundeStationen;
     public GameObject flames;
+    
 
     private int xPos;
     private int zPos;
@@ -43,6 +44,7 @@ public class RandomObjects : MonoBehaviour
             if (objectToGenerate == 2)
             {
                 GameObject newObject = Instantiate(hochhaus, new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                //newObject.AddComponent(Collider);
                 newObject.transform.localScale = new Vector3(objectGrösse, objectGrösse, objectGrösse);
                 GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
                 newObject2.transform.Rotate(0, 90, 0);
