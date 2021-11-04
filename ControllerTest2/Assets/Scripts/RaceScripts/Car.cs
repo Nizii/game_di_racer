@@ -24,6 +24,8 @@ public class Car : MonoBehaviour
     private float borderBounceMove = .2f;
 
     [SerializeField]
+    private bool useStartCountdown = true;
+    [SerializeField]
     private trackCreator track;
 
     [SerializeField]
@@ -78,6 +80,7 @@ public class Car : MonoBehaviour
         if(useStartCountdown)
         {
             currentTime -= 1 * Time.deltaTime;
+<<<<<<< Updated upstream
             if (currentTime > 0)
             {
                 countdownText.text = currentTime.ToString("0");
@@ -87,6 +90,14 @@ public class Car : MonoBehaviour
         {
             currentTime = 0;
         }
+=======
+            countdownText.text = currentTime.ToString("0");
+        } else
+        {
+            currentTime = 0;
+        }
+
+>>>>>>> Stashed changes
         if (currentTime <= 0)
         {
             if (physicUpdateCount % 2 == 0)
