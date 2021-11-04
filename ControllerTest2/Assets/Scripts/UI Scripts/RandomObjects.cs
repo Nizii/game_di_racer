@@ -9,7 +9,8 @@ public class RandomObjects : MonoBehaviour
     public GameObject alienhotel;
     public GameObject rundeStationen;
     public GameObject flames;
-    
+
+    private Vector3 center = new Vector3(50,50,50);
     private int xPos;
     private int zPos;
     private int yPos;
@@ -33,54 +34,54 @@ public class RandomObjects : MonoBehaviour
 
             if (objectToGenerate == 1)
             { 
-                GameObject newObject = Instantiate(missrateneKugel, new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                GameObject newObject = Instantiate(missrateneKugel, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
-                GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos-115, zPos), Quaternion.identity);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos-115, zPos), Quaternion.identity);
                 newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
             
             if (objectToGenerate == 2)
             {
-                GameObject newObject = Instantiate(hochhaus, new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                GameObject newObject = Instantiate(hochhaus, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
-                GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
                 newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
             
             if (objectToGenerate == 3)
             {
-                GameObject newObject = Instantiate(pilzlis, new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                GameObject newObject = Instantiate(pilzlis, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
-                GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
                 newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
 
             if (objectToGenerate == 4)
             {
-                GameObject newObject = Instantiate(strassenlaterne, new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                GameObject newObject = Instantiate(strassenlaterne, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
-                GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
                 newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
 
             if (objectToGenerate == 5)
             {
-                GameObject newObject = Instantiate(alienhotel, new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                GameObject newObject = Instantiate(alienhotel, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
-                GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
                 newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
 
             if (objectToGenerate == 6)
             {
-                GameObject newObject = Instantiate(rundeStationen, new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                GameObject newObject = Instantiate(rundeStationen, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
-                GameObject newObject2 = Instantiate(flames, new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
                 newObject2.transform.Rotate(90, 0, 0);
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
