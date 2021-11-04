@@ -10,7 +10,6 @@ public class RandomObjects : MonoBehaviour
     public GameObject rundeStationen;
     public GameObject flames;
     
-
     private int xPos;
     private int zPos;
     private int yPos;
