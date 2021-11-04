@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class SceneController : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class SceneController : MonoBehaviour
     // Quit Game
     public void ExitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
 
