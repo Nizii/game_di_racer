@@ -19,7 +19,7 @@ public class RandomObjects : MonoBehaviour
     private int index = 0;
 
     public int amountObjects= 50;
-    public int streuungObjects = 400;
+    public int streuungObjects = 1500;
     public int objectSize = 15;
     public int coliderSize = 15;
 
