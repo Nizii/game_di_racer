@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23440635, g: 0.0562035, b: 0.2713167, a: 1}
+  m_IndirectSpecularColor: {r: 0.23432836, g: 0.05584944, b: 0.27129802, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6663497238878319202, guid: 8cf0b46d6e276b94ea59db816a034118, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6663497238878319202, guid: 8cf0b46d6e276b94ea59db816a034118, type: 3}
       propertyPath: m_AnchorMax.x
@@ -357,7 +357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &268125357
 GameObject:
@@ -571,8 +571,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1163456442}
+  - {fileID: 659062861}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &315574439 stripped
 MonoBehaviour:
@@ -704,7 +705,7 @@ Transform:
   m_Children:
   - {fileID: 268125358}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &505788554
 MonoBehaviour:
@@ -718,11 +719,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483b18c19534f4ca68c4cad9d4dcb0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackWidth: 17.57
-  speed: 2.7
-  rollSpeed: 0.61
-  pitchSpeed: 0.03
-  yawSpeed: 0.03
+  trackWidth: 18
+  speed: 2.8
+  rollSpeed: 0.5
+  pitchSpeed: 0.02
+  yawSpeed: 0.025
   trackHead: {fileID: 268125357}
   glowLineTopMaterial: {fileID: 2100000, guid: 5fab6fe8a25e943a3b12c6b6afa8ea76, type: 2}
   glowLineSideMaterial: {fileID: 2100000, guid: 3f73c28a94b8e413faffc21f005f8faf, type: 2}
@@ -13627,11 +13628,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659062859}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 309782591}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &1163456442 stripped
 Transform:
@@ -13953,7 +13954,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13991,7 +13992,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.91102034, z: 1.033802}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 2.3, y: 0, z: 0}
 --- !u!81 &1852722045
 AudioListener:
@@ -14057,5 +14058,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 309782591}
-  smoothSpeed: 0.25
-  offset: {x: 0, y: 9.63, z: -11.1}
+  smoothSpeed: 0.33
+  offset: {x: 0, y: 7.5, z: -14}
