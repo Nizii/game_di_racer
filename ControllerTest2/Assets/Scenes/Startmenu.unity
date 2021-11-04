@@ -480,6 +480,10 @@ MonoBehaviour:
   ButtonPosition2: {fileID: 0}
   ButtonPosition3: {fileID: 0}
   ButtonPosition4: {fileID: 0}
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  click: {fileID: 0}
+  clickHover: {fileID: 0}
 --- !u!1 &1447104498
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +970,10 @@ MonoBehaviour:
   ButtonPosition2: {fileID: 446253532}
   ButtonPosition3: {fileID: 0}
   ButtonPosition4: {fileID: 0}
+  hoverSound: {fileID: 1447104504}
+  clickSound: {fileID: 1447104504}
+  click: {fileID: 8300000, guid: 48958153d9acc804290575c36bf8976e, type: 3}
+  clickHover: {fileID: 8300000, guid: 4455dbbd5a57dc046a591b8ce9ade639, type: 3}
 --- !u!1 &1830168479
 GameObject:
   m_ObjectHideFlags: 0

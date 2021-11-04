@@ -76,7 +76,15 @@ public class trackCreator : MonoBehaviour
 
     private List<Vector3> glowLineSRVerticesList = new List<Vector3>();
     private List<int> glowLineSRTrianglesList = new List<int>();
+    /*
+    //GameOver Countdown
+    float startingGameoverTime = 4f;
+    float currentGameoverTime = 0f;
 
+    //GameOver Sound
+    public AudioSource applauseSound;
+    public AudioClip applause;
+    */
 
     // Start is called before the first frame update
     void Start()
@@ -149,7 +157,8 @@ public class trackCreator : MonoBehaviour
                     if (trackHeadCollider.bounds.Contains(vertex))
                     {
                         if(ColliderContainsPoint(trackHeadCollider, vertex)){
-                            SceneManager.LoadScene("End");
+                            SceneManager.LoadScene("EndRacer");
+                            //GameOver();
                             //this.gameOver = true;
                         }
                     }
@@ -160,6 +169,17 @@ public class trackCreator : MonoBehaviour
         }
     }
 
+    /*
+    private void GameOver()
+    {
+        currentGameoverTime -= 1 * Time.deltaTime;
+        if (currentGameoverTime <= 0)
+        {
+            applauseSound.PlayOneShot(applause);
+            SceneManager.LoadScene("End");
+        }
+    }
+    */
 
     private void BuildTrack()
     {
