@@ -44,7 +44,7 @@ public class Car : MonoBehaviour
     public TextMeshPro countdownText;
 
     //GameOver Countdown
-    //float currentGameoverTime = 3f;
+    float currentGameoverTime = 3f;
 
     //GameOver Sound
     //public AudioSource applauseSound;
