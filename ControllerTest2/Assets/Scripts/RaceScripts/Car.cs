@@ -75,14 +75,14 @@ public class Car : MonoBehaviour
     private void FixedUpdate()
     {
         //Countdown
-        if(useStartCountdown)
+        if (useStartCountdown)
         {
             currentTime -= 1 * Time.deltaTime;
             if (currentTime > 0)
             {
                 countdownText.text = currentTime.ToString("0");
             }
-        } 
+        }
         else
         {
             currentTime = 0;
@@ -122,7 +122,7 @@ public class Car : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Track")
+        if (other.tag == "Track")
         {
             Vector3 turnIntoTrack = new Vector3(0f, 0f, 0f);
             switch (other.name)
@@ -155,31 +155,32 @@ public class Car : MonoBehaviour
     }
     private void DriveCar()
     {
-        Vector3[] currentCarUp = track.getCurrentCarUp(transform.position);
+        Vector3[] trackCenterNearestToCar = track.GetNearestCenterUp(transform.position);
         //float steering = move.ReadValue<Vector2>().x * 0.1f;
-        if(!isLeftTurnAllowed && steering < 0 || !isRightTurnAllowed && steering > 0)
+        if (!isLeftTurnAllowed && steering < 0 || !isRightTurnAllowed && steering > 0)
         {
             steering = 0;
         }
         Vector3 steeringInput = new Vector3(steering, 0, 0);
         Vector3 newForward = transform.rotation * steeringInput + transform.forward;
 
-        Vector3 upDifferenceRotationAngle = Vector3.Cross(currentCarUp[0], newForward);
-        float upDifferenceAngleSigned = Vector3.SignedAngle(transform.up, currentCarUp[0], upDifferenceRotationAngle);
+        Vector3 upDifferenceRotationAngle = Vector3.Cross(trackCenterNearestToCar[1], newForward);
+        float upDifferenceAngleSigned = Vector3.SignedAngle(transform.up, trackCenterNearestToCar[1], upDifferenceRotationAngle);
 
         Vector3 newForwardRotated = Quaternion.AngleAxis(upDifferenceAngleSigned, upDifferenceRotationAngle) * newForward;
-        transform.rotation = Quaternion.LookRotation(newForwardRotated, currentCarUp[0]);
+        transform.rotation = Quaternion.LookRotation(newForwardRotated, trackCenterNearestToCar[1]);
 
-        Plane plane = new Plane(currentCarUp[0], currentCarUp[1]); // ground plane
-        Ray ray = new Ray(transform.position, -currentCarUp[0]);
+        Plane plane = new Plane(trackCenterNearestToCar[1], trackCenterNearestToCar[0]); // ground plane
+        Ray ray = new Ray(transform.position, -trackCenterNearestToCar[1]);
         float distance; // the distance from the ray origin to the ray intersection of the plane
         if (plane.Raycast(ray, out distance))
         {
-            transform.position = ray.GetPoint(distance-1f) + transform.forward * track.getSpeed(); // distance along the ray
+            transform.position = ray.GetPoint(distance - 1f) + transform.forward * track.GetSpeed(); // distance along the ray
             Debug.DrawRay(ray.origin, ray.direction * distance, Color.yellow);
-        } else
+        }
+        else
         {
-            Debug.Log("my Ray did not hit :(");
+            Debug.Log("the Car must have lost the Track because my Ray did not hit :(");
         }
     }
 
