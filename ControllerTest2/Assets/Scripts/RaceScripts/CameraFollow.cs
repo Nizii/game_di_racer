@@ -12,15 +12,15 @@ public class CameraFollow : MonoBehaviour
     {
         if (physicUpdateCount % 2 == 0)
         {
-
-                Vector3 desiredPosition = target.position + target.transform.rotation * offset;
+            transform.rotation = target.transform.rotation;
+            Vector3 desiredPosition = target.position + target.transform.rotation * offset;
                 Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
                 transform.position = smoothedPosition;
                 //transform.rotation = Quaternion.LookRotation(target.transform.forward, target.transform.up);
 
-                transform.LookAt(target);
+
         }
         physicUpdateCount++;
-
+        transform.LookAt(target);
     }
 }
