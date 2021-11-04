@@ -370,7 +370,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b11dce9f2cf5d934597df8ab419dbeb5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b13e25af28c87404fa5a9ef44cee9fc3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -816,6 +816,8 @@ MonoBehaviour:
   glowLineSideMaterial: {fileID: 2100000, guid: 3f73c28a94b8e413faffc21f005f8faf, type: 2}
   horizontalTrackLineMaterial: {fileID: 2100000, guid: 5fab6fe8a25e943a3b12c6b6afa8ea76, type: 2}
   horizontalTrackLineWidth: 0.4
+  currentTime: 0
+  startingTime: 2
 --- !u!23 &505788555
 MeshRenderer:
   m_ObjectHideFlags: 0
