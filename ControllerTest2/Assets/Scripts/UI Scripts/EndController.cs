@@ -1,32 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 public class EndController : MonoBehaviour
 {
-    private PlayerOneInput playerOneInput;
     public AudioSource clickSound;
     public AudioClip click;
 
-    private void Awake()
+    public void OnEnterButton(InputAction.CallbackContext value)
     {
-        playerOneInput = new PlayerOneInput();
-    }
-
-    private void OnEnable()
-    {
-        playerOneInput.Enable();
-    }
-
-    private void OnDisable()
-    {
-        playerOneInput.Disable();
-    }
-
-    private void Update()
-    {
-        if (playerOneInput.Menu.Play.triggered)
-        {
-            clickSound.PlayOneShot(click);
-            SceneManager.LoadScene("Startmenu");
-        }
+        clickSound.PlayOneShot(click);
+        SceneManager.LoadScene("Startmenu");
     }
 }

@@ -1,27 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
 {
     public GameObject Point;
 
     private int SelectedButton = 1;
-    [SerializeField]
-    private int NumberOfButtons;
-
     public Transform ButtonPosition1;
     public Transform ButtonPosition2;
-    public Transform ButtonPosition3;
-    public Transform ButtonPosition4;
 
     public AudioSource hoverSound;
     public AudioSource clickSound;
     public AudioClip click;
     public AudioClip clickHover;
 
-
-    private void OnPlay()
+    public void OnEnterButton(InputAction.CallbackContext value)
     {
+        clickSound.PlayOneShot(click);
         if (SelectedButton == 1)
         {
             // When the button with the pointer is clicked, this piece of script is activated
@@ -35,28 +31,23 @@ public class MenuController : MonoBehaviour
             Application.Quit();
         }
     }
-    private void OnButtonUp()
+
+    public void OnUpButton(InputAction.CallbackContext value)
     {
-        // Checks if the pointer needs to move down or up, in this case the poiter moves up one button
+        hoverSound.PlayOneShot(clickHover);
         if (SelectedButton > 1)
-        {
-            SelectedButton -= 1;
-        }
-        hoverSound.PlayOneShot(clickHover);
+            SelectedButton--;
         MoveThePointer();
-        return;
     }
-    private void OnButtonDown()
+
+    public void OnDownButton(InputAction.CallbackContext value)
     {
-        // Checks if the pointer needs to move down or up, in this case the poiter moves down one button
-        if (SelectedButton < NumberOfButtons)
-        {
-            SelectedButton += 1;
-        }
         hoverSound.PlayOneShot(clickHover);
+        if(SelectedButton < 2)
+            SelectedButton++;
         MoveThePointer();
-        return;
     }
+
     private void MoveThePointer()
     {
         // Moves the pointer
@@ -68,14 +59,7 @@ public class MenuController : MonoBehaviour
         {
             Point.transform.position = ButtonPosition2.position;
         }
-        else if (SelectedButton == 3)
-        {
-            Point.transform.position = ButtonPosition3.position;
-        }
-        else if (SelectedButton == 4)
-        {
-            Point.transform.position = ButtonPosition4.position;
-        }
+
     }
 
 }
