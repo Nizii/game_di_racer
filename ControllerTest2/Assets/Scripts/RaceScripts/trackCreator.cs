@@ -18,12 +18,13 @@ public class trackCreator : MonoBehaviour
 
     Queue<GameObject> trackBorders = new Queue<GameObject>();
 
+    private GameObject trackBordersHolder;
+
     [SerializeField]
     private float trackWidth = 2f;
 
     [SerializeField]
     private float speed = 2f;
-
 
     [SerializeField]
     private float rollSpeed = 1f;
@@ -46,11 +47,17 @@ public class trackCreator : MonoBehaviour
     [SerializeField]
     private Material glowLineSideMaterial;
 
+    [SerializeField]
+    private Material horizontalTrackLineMaterial;
+
+    [SerializeField]
+    private float horizontalTrackLineWidth = .4f;
+
+    private GameObject horizontalTrackLines;
 
     private int physicUpdateCount = 0;
 
     private bool gameOver = false;
-
 
     private Mesh glowLineTL; // Top Left
     private Mesh glowLineTR; // Top Right
@@ -103,6 +110,15 @@ public class trackCreator : MonoBehaviour
         glowLineSRGO.AddComponent<MeshRenderer>().material = glowLineSideMaterial;
         glowLineSRGO.transform.position = new Vector3(0, 0.01f, 0);
 
+
+        horizontalTrackLines = new GameObject("horizontalTrackLines");
+        horizontalTrackLines.transform.parent = this.transform;
+        horizontalTrackLines.transform.position = new Vector3(0, 0.1f, 0);
+
+
+        trackBordersHolder = new GameObject("trackBorders");
+        trackBordersHolder.transform.parent = this.transform;
+
     }
 
 
@@ -146,7 +162,6 @@ public class trackCreator : MonoBehaviour
     private void BuildTrack()
     {
         //Controller Inputs
-        //Vector3 inputVector = new Vector3(move.ReadValue<Vector2>().x * yawSpeed * speed, -move.ReadValue<Vector2>().y * pitchSpeed * speed, 0f);
         Vector3 inputVectorY = new Vector3(0f, inputVector.y, 0f);
         Vector3 newForward = trackHead.transform.rotation * inputVector + trackHead.transform.forward;
 
@@ -162,12 +177,14 @@ public class trackCreator : MonoBehaviour
         this.AddVertices();
         this.AddTriangles();
         this.AddColliderBoxes();
+        if(physicUpdateCount % 8 == 0)
+        {
+            this.DrawHorizontalTrackLine();
+        }
         UpdateMesh();
-
-        //Update Camera
-        //Camera.main.transform.position = trackHead.transform.position + trackHead.transform.up * 3f + -trackHead.transform.forward*20f;
-        //Camera.main.transform.rotation = Quaternion.LookRotation(trackHead.transform.forward);
     }
+
+    
 
     private void AddVertices()
     {
@@ -311,6 +328,20 @@ public class trackCreator : MonoBehaviour
         glowLineSRTrianglesList.Add(vertexCountSR - 2);
     }
 
+    private void DrawHorizontalTrackLine()
+    {
+        GameObject horizontalTrackLine = new GameObject("horizontalTrackLine");
+        horizontalTrackLine.transform.parent = horizontalTrackLines.transform;
+        Mesh horizontalTrackLineMesh = new Mesh();
+        horizontalTrackLine.AddComponent<MeshFilter>().mesh = horizontalTrackLineMesh;
+        horizontalTrackLine.AddComponent<MeshRenderer>().material = horizontalTrackLineMaterial;
+        Vector3[] vertices = new[] { (verticesList[verticesList.Count - 8] - trackHead.transform.forward * horizontalTrackLineWidth), verticesList[verticesList.Count - 7] - trackHead.transform.forward * horizontalTrackLineWidth, verticesList[verticesList.Count - 8], verticesList[verticesList.Count - 7] };
+        int[] triangles = new[] { 0, 2, 1, 2, 3, 1 };
+        horizontalTrackLineMesh.vertices = vertices;
+        horizontalTrackLineMesh.triangles = triangles;
+        horizontalTrackLineMesh.RecalculateNormals();
+    }
+
     private void AddColliderBoxes()
     {
         int vertexCount = verticesList.Count;
@@ -326,12 +357,14 @@ public class trackCreator : MonoBehaviour
         } else
         {
             leftColliderGO = new GameObject("leftBorder");
+            leftColliderGO.tag = "Track";
             rightColliderGO = new GameObject("rightBorder");
+            rightColliderGO.tag = "Track";
             leftCollider = leftColliderGO.AddComponent<BoxCollider>();
             rightCollider = rightColliderGO.AddComponent<BoxCollider>();
         }
         //Box Left
-        leftColliderGO.transform.parent = transform;
+        leftColliderGO.transform.parent = trackBordersHolder.transform;
         Vector3 leftColliderGOForward = verticesList[vertexCount - 8] - verticesList[vertexCount - 16];
         //Vector3 leftColliderGOUP = verticesList[vertexCount - 16] - verticesList[vertexCount - 14];
         Vector3 leftColliderGOUP = verticesList[vertexCount - 10] - verticesList[vertexCount - 14];
@@ -342,7 +375,7 @@ public class trackCreator : MonoBehaviour
         trackBorders.Enqueue(leftColliderGO);
 
         //Box Right
-        rightColliderGO.transform.parent = transform;
+        rightColliderGO.transform.parent = trackBordersHolder.transform;
         Vector3 rightColliderGOForward = verticesList[vertexCount - 7] - verticesList[vertexCount - 15]; 
         //Vector3 rightColliderGOUP = verticesList[vertexCount - 15] - verticesList[vertexCount - 13];
         Vector3 rightColliderGOUP = verticesList[vertexCount - 9] - verticesList[vertexCount - 13];
@@ -356,7 +389,11 @@ public class trackCreator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("my track head collided with:" + other);
+        Debug.Log(other);
+        if(other.tag != "Track" && other.tag != "Player")
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     private void UpdateMesh()
@@ -365,6 +402,14 @@ public class trackCreator : MonoBehaviour
 
         mesh.vertices = verticesList.ToArray();
         mesh.triangles = trianglesList.ToArray();
+
+        //UV Mapping for Textures on Track...Performance issue!!!!
+        //Vector2[] uvs = new Vector2[mesh.vertices.Length];
+        //for (int i = 0; i < uvs.Length; i++)
+        //{
+        //    uvs[i] = new Vector2(mesh.vertices[i].x, mesh.vertices[i].z);
+        //}
+        //mesh.uv = uvs;
 
         mesh.RecalculateNormals();
 
@@ -404,16 +449,10 @@ public class trackCreator : MonoBehaviour
     {
         return this.speed;
     }
-    public Vector3[] getCurrentCarUp()
-    {
-        if ((centerUpVectors.Count - 10) > 0)
-            return new[] { centerUpVectors[centerUpVectors.Count - 10], centerPositionVectors[centerPositionVectors.Count - 10] };
-        else
-            return new[] { centerUpVectors[0], centerPositionVectors[0] };
-    }
+
     public Vector3[] getCurrentCarUp(Vector3 currentCarPos)
     {
-        float lastDistance = float.MinValue;
+        float lastDistance = float.MaxValue;
         float shortestDistance = float.MaxValue;
         int shortestDistanceIndex = centerPositionVectors.Count - 1;
         for (int i = centerPositionVectors.Count - 1; i >= 0; i--)
@@ -426,6 +465,7 @@ public class trackCreator : MonoBehaviour
                 shortestDistance = currentDistance;
                 shortestDistanceIndex = i;
             }
+            //Optimze Break Condition!
             if (currentDistance > lastDistance)
             {
                 //break;

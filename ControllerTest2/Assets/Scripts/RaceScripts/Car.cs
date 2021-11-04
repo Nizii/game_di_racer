@@ -16,8 +16,17 @@ public class Car : MonoBehaviour
     [SerializeField]
     private float turnAngle = 0.1f;
 
+
+    [SerializeField]
+    private float borderBounceAngle = .03f;
+    [SerializeField]
+    private float borderBounceMove = .2f;
+
     [SerializeField]
     private trackCreator track;
+
+    [SerializeField]
+    private bool useStartCountdown = true;
 
     public int maxHealth = 100;
     private int currentHealth;
@@ -57,14 +66,18 @@ public class Car : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
-
-
         //Countdown
-        currentTime -= 1 * Time.deltaTime;
-        if (currentTime >0) {
-            countdownText.text = currentTime.ToString("0");
+        if(useStartCountdown)
+        {
+            currentTime -= 1 * Time.deltaTime;
+            if (currentTime > 0)
+            {
+                countdownText.text = currentTime.ToString("0");
+            }
+        } 
+        else
+        {
+            currentTime = 0;
         }
         if (currentTime <= 0)
         {
@@ -90,21 +103,28 @@ public class Car : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("the car hit: " + other.name);
-        switch (other.name)
+        if(other.tag == "Track")
         {
-            case "leftBorder":
-                isLeftTurnAllowed = false;
-                TakeDamage(damageEdge);
-                break;
-            case "rightBorder":
-                isRightTurnAllowed = false;
-                TakeDamage(damageEdge);
-                break;
+            Vector3 turnIntoTrack = new Vector3(0f, 0f, 0f);
+            switch (other.name)
+            {
+                case "leftBorder":
+                    isLeftTurnAllowed = false;
+                    transform.position += transform.right * borderBounceMove;
+                    turnIntoTrack.x = -borderBounceAngle;
+                    break;
+                case "rightBorder":
+                    isRightTurnAllowed = false;
+                    transform.position += -transform.right * borderBounceMove;
+                    turnIntoTrack.x = borderBounceAngle;
+                    break;
+            }
+            TakeDamage(damageEdge);
+            transform.rotation = Quaternion.LookRotation(other.gameObject.transform.forward + other.gameObject.transform.rotation * turnIntoTrack, transform.up);
+
         }
-        Debug.Log("hit at: " + other.gameObject.transform.forward);
-        transform.rotation = Quaternion.LookRotation(other.gameObject.transform.forward, transform.up);
     }
+
     private void OnTriggerExit(Collider other)
     {
         isLeftTurnAllowed = isRightTurnAllowed = true;
