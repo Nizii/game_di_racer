@@ -103,6 +103,17 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""action"": ""TrackMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17a5ad16-a68f-48a1-8cbe-5dc35a90a270"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller2;Controller1"",
+                    ""action"": ""TrackMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
