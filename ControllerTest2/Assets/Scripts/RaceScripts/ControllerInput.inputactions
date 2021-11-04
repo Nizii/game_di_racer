@@ -2,30 +2,14 @@
     "name": "ControllerInput",
     "maps": [
         {
-            "name": "Menu",
-            "id": "0423e94e-ab4f-41df-8238-ea37b221ead1",
+            "name": "Racer",
+            "id": "5e7af1fc-3aa2-4faf-9ed1-32922d84173a",
             "actions": [
                 {
-                    "name": "ButtonUp",
-                    "type": "Button",
-                    "id": "ca396918-9586-408e-8ab0-e08926a8cc61",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "ButtonDown",
-                    "type": "Button",
-                    "id": "e8f891c1-4121-44c8-a7c7-67805a75fa12",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Play",
-                    "type": "Button",
-                    "id": "aaa14d8b-26ee-4c32-9937-5a29dedbb24e",
-                    "expectedControlType": "Button",
+                    "name": "RacerMove",
+                    "type": "Value",
+                    "id": "be7d6998-6c00-4be5-8fff-e9029c26e31b",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -33,34 +17,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "f6a7aae2-f4d1-4b7d-be95-a3164ac97235",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "AxisDeadzone,AxisDeadzone",
-                    "groups": "Controller1",
-                    "action": "ButtonUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c8dbfaea-3c39-47d5-be66-8df3ed0b949f",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "AxisDeadzone,AxisDeadzone",
-                    "groups": "Controller1",
-                    "action": "ButtonDown",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ac3bf203-ff89-422d-bf9e-f1af1f3c25da",
-                    "path": "<Gamepad>/buttonSouth",
+                    "id": "e5db4d64-6c53-4721-a94a-4427dd82b899",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller1",
-                    "action": "Play",
+                    "action": "RacerMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -68,12 +30,12 @@
         },
         {
             "name": "Tracker",
-            "id": "4682abc6-3b0b-4aa0-86b0-614316b5b62d",
+            "id": "0ffb071d-ef48-4913-9af6-9b4c58ac1275",
             "actions": [
                 {
-                    "name": "TrackMove",
+                    "name": "TrackerMove",
                     "type": "Value",
-                    "id": "c8d8d659-c638-4c94-83ed-a9f9382efb5f",
+                    "id": "2dce8f35-722e-40fc-a679-a2d0a98ef559",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -82,37 +44,42 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "99c5d310-1eaa-4fbc-84b1-d11cc9e716c2",
+                    "id": "b3640d2e-0824-4bf8-b76b-983190de8ff6",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller2",
-                    "action": "TrackMove",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "17a5ad16-a68f-48a1-8cbe-5dc35a90a270",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller2;Controller1",
-                    "action": "TrackMove",
+                    "action": "TrackerMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Racer",
-            "id": "55a656b6-70d9-4fa9-a74f-789e3159f5ef",
+            "name": "Menu",
+            "id": "92958315-dc47-4668-aaf7-c5259fcb980b",
             "actions": [
                 {
-                    "name": "RacerMove",
-                    "type": "Value",
-                    "id": "a52a9ed2-63b3-4fbc-8a28-8d5f28ce6c75",
-                    "expectedControlType": "Vector2",
+                    "name": "ButtonDown",
+                    "type": "Button",
+                    "id": "93f1da14-df68-413e-a2e1-f8f72bc73159",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ButtonUp",
+                    "type": "Button",
+                    "id": "b4e44371-8d12-4e6e-adef-93832d9e6049",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Enter",
+                    "type": "Button",
+                    "id": "5845f635-53e0-4e9e-a11e-038c9d5d10fd",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -120,12 +87,56 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "00a89acd-0a53-4125-bd7a-53ac2b049b8b",
-                    "path": "<Gamepad>/leftStick",
+                    "id": "b766f94f-cb5a-4229-873a-d5072e36376b",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller1",
-                    "action": "RacerMove",
+                    "groups": "",
+                    "action": "ButtonDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0db6bf62-1d5e-4005-806c-ec30131fd48f",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd53b07e-b186-43f6-b3ac-28f0b2f6ebe9",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8695214-211c-42b5-9123-307481d75cd5",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8ca1cbe-9e06-4b02-968a-9b9cfbce6566",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Enter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -145,23 +156,17 @@
             ]
         },
         {
-            "name": "Keyboard",
-            "bindingGroup": "Keyboard",
-            "devices": [
-                {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
             "name": "Controller2",
             "bindingGroup": "Controller2",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
                     "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
                     "isOR": false
                 }
             ]

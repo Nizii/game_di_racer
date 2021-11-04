@@ -79,15 +79,11 @@ public class trackCreator : MonoBehaviour
 
     private List<Vector3> glowLineSRVerticesList = new List<Vector3>();
     private List<int> glowLineSRTrianglesList = new List<int>();
-    /*
-    //GameOver Countdown
-    float startingGameoverTime = 4f;
-    float currentGameoverTime = 0f;
 
-    //GameOver Sound
-    public AudioSource applauseSound;
-    public AudioClip applause;
-    */
+    //Countdown
+    public float currentTime = 0f;
+    public float startingTime = 2f;
+    private bool useStartCountdown = true;
 
     // Start is called before the first frame update
     void Start()
@@ -147,40 +143,40 @@ public class trackCreator : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!gameOver)
+        //Countdown
+        if (useStartCountdown)
         {
-            if (physicUpdateCount % 2 == 0)
+            currentTime -= 1 * Time.deltaTime;
+        }
+        else
+        {
+            currentTime = 0;
+        }
+        if (currentTime <= 0)
+        {
+
+            if (!gameOver)
             {
-                Collider trackHeadCollider = trackHead.GetComponent<Collider>();
-                foreach (Vector3 vertex in verticesList)
+                if (physicUpdateCount % 2 == 0)
                 {
-                    if (trackHeadCollider.bounds.Contains(vertex))
+                    Collider trackHeadCollider = trackHead.GetComponent<Collider>();
+                    foreach (Vector3 vertex in verticesList)
                     {
-                        if (ColliderContainsPoint(trackHeadCollider, vertex))
+                        if (trackHeadCollider.bounds.Contains(vertex))
                         {
-                            SceneManager.LoadScene("EndRacer");
-                            //GameOver();
-                            //this.gameOver = true;
+                            if (ColliderContainsPoint(trackHeadCollider, vertex))
+                            {
+                                this.gameOver = true;
+                                SceneManager.LoadScene("EndRacer");
+                            }
                         }
                     }
+                    BuildTrack();
                 }
-                BuildTrack();
+                physicUpdateCount++;
             }
-            physicUpdateCount++;
         }
     }
-
-    /*
-    private void GameOver()
-    {
-        currentGameoverTime -= 1 * Time.deltaTime;
-        if (currentGameoverTime <= 0)
-        {
-            applauseSound.PlayOneShot(applause);
-            SceneManager.LoadScene("End");
-        }
-    }
-    */
 
     private void BuildTrack()
     {
@@ -527,7 +523,6 @@ public class trackCreator : MonoBehaviour
             carTrackHeadDistance += centerForwardVectors[i].magnitude;
         }
         CalculateEffectiveSpeed(carTrackHeadDistance);
-        Debug.Log("carTrackHeadDistance: " + carTrackHeadDistance);
 
         return new[] { centerPositionVectors[shortestDistanceIndex], centerUpVectors[shortestDistanceIndex], centerForwardVectors[shortestDistanceIndex] };
 

@@ -39,8 +39,8 @@ public class Car : MonoBehaviour
     public TimerText timerText;
 
     //Countdown
-    float currentTime = 0f;
-    float startingTime = 3f;
+    public float currentTime = 0f;
+    public float startingTime = 2f;
     public TextMeshPro countdownText;
 
     //GameOver Countdown

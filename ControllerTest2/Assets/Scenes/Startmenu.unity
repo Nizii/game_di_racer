@@ -439,7 +439,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228612326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -475,11 +475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Point: {fileID: 0}
-  NumberOfButtons: 0
   ButtonPosition1: {fileID: 0}
   ButtonPosition2: {fileID: 0}
-  ButtonPosition3: {fileID: 0}
-  ButtonPosition4: {fileID: 0}
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
   click: {fileID: 0}
@@ -496,7 +493,6 @@ GameObject:
   - component: {fileID: 1447104502}
   - component: {fileID: 1447104501}
   - component: {fileID: 1447104500}
-  - component: {fileID: 1447104505}
   - component: {fileID: 1447104504}
   - component: {fileID: 1447104503}
   - component: {fileID: 1447104507}
@@ -541,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -571,31 +567,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1447104501}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2110680021}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: DeactivateStartscreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2110680021}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: ChangeMyScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1447104501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,7 +623,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1447104505}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: HoverButton, Assembly-CSharp
           m_MethodName: HoverSound
           m_Mode: 1
@@ -667,7 +639,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1447104505}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: HoverButton, Assembly-CSharp
           m_MethodName: ClickSound
           m_Mode: 1
@@ -775,18 +747,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1447104505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447104498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cf5d2a1e3b171499d968bc7bf0e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1447104506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,7 +895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 5d77c584bea0b63479916f1733f8fbec, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -946,7 +906,63 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be7d6998-6c00-4be5-8fff-e9029c26e31b
+    m_ActionName: Racer/RacerMove[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2dce8f35-722e-40fc-a679-a2d0a98ef559
+    m_ActionName: Tracker/TrackerMove[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick,/XInputControllerWindows/rightStick,/XInputControllerWindows/rightStick,/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1617981110}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnDownButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 93f1da14-df68-413e-a2e1-f8f72bc73159
+    m_ActionName: Menu/ButtonDown[/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/down]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1617981110}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnUpButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b4e44371-8d12-4e6e-adef-93832d9e6049
+    m_ActionName: Menu/ButtonUp[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1617981110}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnEnterButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5845f635-53e0-4e9e-a11e-038c9d5d10fd
+    m_ActionName: Menu/Enter[/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Menu
@@ -965,11 +981,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Point: {fileID: 2143052270}
-  NumberOfButtons: 2
   ButtonPosition1: {fileID: 1165180939}
   ButtonPosition2: {fileID: 446253532}
-  ButtonPosition3: {fileID: 0}
-  ButtonPosition4: {fileID: 0}
   hoverSound: {fileID: 1447104504}
   clickSound: {fileID: 1447104504}
   click: {fileID: 8300000, guid: 48958153d9acc804290575c36bf8976e, type: 3}
@@ -986,7 +999,6 @@ GameObject:
   - component: {fileID: 1830168483}
   - component: {fileID: 1830168482}
   - component: {fileID: 1830168481}
-  - component: {fileID: 1830168486}
   - component: {fileID: 1830168485}
   - component: {fileID: 1830168484}
   - component: {fileID: 1830168487}
@@ -1061,19 +1073,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1830168482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2110680021}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: ExitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1830168482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,7 +1225,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1830168486}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: HoverButton, Assembly-CSharp
           m_MethodName: HoverSound
           m_Mode: 1
@@ -1241,7 +1241,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1830168486}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: HoverButton, Assembly-CSharp
           m_MethodName: ExitSound
           m_Mode: 1
@@ -1253,18 +1253,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1830168486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830168479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cf5d2a1e3b171499d968bc7bf0e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1830168487
 MonoBehaviour:
   m_ObjectHideFlags: 0
