@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23440635, g: 0.0562035, b: 0.2713167, a: 1}
+  m_IndirectSpecularColor: {r: 0.23432836, g: 0.05584944, b: 0.27129802, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -964,7 +964,7 @@ MonoBehaviour:
     m_ActionId: a52a9ed2-63b3-4fbc-8a28-8d5f28ce6c75
     m_ActionName: Racer/RacerMove[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Controller2
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Tracker
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
