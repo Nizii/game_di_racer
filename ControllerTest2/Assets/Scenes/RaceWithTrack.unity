@@ -436,9 +436,10 @@ MonoBehaviour:
   alienhotel: {fileID: 919132149155446097, guid: 05d53d7b49d9e4a26b939868ccdb7a8b, type: 3}
   rundeStationen: {fileID: 919132149155446097, guid: e5fbe19ab9afd4346a6d4e17fa169974, type: 3}
   flames: {fileID: 3479227261241279688, guid: 1bb140f9ff10e403aa7aba5a42747003, type: 3}
-  anzahlObjecte: 50
-  streuungObjecte: 1500
+  amountObjects: 50
+  streuungObjects: 400
   objectSize: 15
+  coliderSize: 10
 --- !u!114 &428823061
 MonoBehaviour:
   m_ObjectHideFlags: 0
