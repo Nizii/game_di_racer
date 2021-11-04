@@ -439,7 +439,7 @@ MonoBehaviour:
   amountObjects: 50
   streuungObjects: 400
   objectSize: 15
-  coliderSize: 10
+  coliderSize: 15
 --- !u!114 &428823061
 MonoBehaviour:
   m_ObjectHideFlags: 0

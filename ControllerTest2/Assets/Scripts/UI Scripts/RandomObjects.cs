@@ -21,7 +21,7 @@ public class RandomObjects : MonoBehaviour
     public int amountObjects= 50;
     public int streuungObjects = 400;
     public int objectSize = 15;
-    public int coliderSize = 5;
+    public int coliderSize = 15;
 
 
     private void Start()
