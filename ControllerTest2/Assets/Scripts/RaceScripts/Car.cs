@@ -53,6 +53,11 @@ public class Car : MonoBehaviour
     //Health
     public int damageEdge = 5;
 
+    //Collision Sound
+    public AudioSource audioSource;
+    public AudioClip collisionSound;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -138,6 +143,7 @@ public class Car : MonoBehaviour
                     turnIntoTrack.x = borderBounceAngle;
                     break;
             }
+            audioSource.PlayOneShot(collisionSound);
             TakeDamage(damageEdge);
             transform.rotation = Quaternion.LookRotation(other.gameObject.transform.forward + other.gameObject.transform.rotation * turnIntoTrack, transform.up);
 
