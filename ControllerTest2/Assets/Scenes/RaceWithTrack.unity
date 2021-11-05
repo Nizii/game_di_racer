@@ -260,7 +260,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1d206f402c682654fabc4da148000521, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f6267b87050e2374cb475cde0aaa210b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -553,10 +553,13 @@ MonoBehaviour:
   pilzlis: {fileID: 919132149155446097, guid: 7add7d0d588c6429a941d765729ff794, type: 3}
   strassenlaterne: {fileID: 919132149155446097, guid: e4c5b9e6886df485db26e955528b2464, type: 3}
   alienhotel: {fileID: 919132149155446097, guid: 05d53d7b49d9e4a26b939868ccdb7a8b, type: 3}
-  rundeStationen: {fileID: 919132149155446097, guid: e5fbe19ab9afd4346a6d4e17fa169974, type: 3}
   flames: {fileID: 3479227261241279688, guid: 1bb140f9ff10e403aa7aba5a42747003, type: 3}
+  uboot: {fileID: 919132149155446097, guid: 7108b1eb97efc4d9f81669674ea9ccb7, type: 3}
+  ufo: {fileID: 919132149155446097, guid: 75f82b7b0524468468b19cf8cdf1a708, type: 3}
+  tower: {fileID: 919132149155446097, guid: 498bbb6923170674285ebaf4620b17b7, type: 3}
+  insel: {fileID: 919132149155446097, guid: 8c226e7ec556ef54384d35e61adf976d, type: 3}
   amountObjects: 70
-  streuungObjects: 1500
+  streuungObjects: 1200
   objectSize: 15
   coliderSize: 15
 --- !u!114 &309782587

@@ -7,8 +7,13 @@ public class RandomObjects : MonoBehaviour
     public GameObject pilzlis;
     public GameObject strassenlaterne;
     public GameObject alienhotel;
-    public GameObject rundeStationen;
+    //public GameObject rundeStationen;
     public GameObject flames;
+    public GameObject uboot;
+    public GameObject ufo;
+    public GameObject tower;
+    public GameObject insel;
+
 
     private Vector3 center = new Vector3(50,50,50);
     private int xPos;
@@ -28,7 +33,7 @@ public class RandomObjects : MonoBehaviour
     {
         while (index < amountObjects)
         {
-            objectToGenerate = Random.Range(1, 7);
+            objectToGenerate = Random.Range(1, 10);
             xPos = Random.Range(streuungObjects, -streuungObjects);
             yPos = Random.Range(streuungObjects, -streuungObjects);
             zPos = Random.Range(streuungObjects, -streuungObjects);
@@ -88,9 +93,55 @@ public class RandomObjects : MonoBehaviour
                 newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
             }
 
+            /*
             if (objectToGenerate == 6)
             {
                 GameObject newObject = Instantiate(rundeStationen, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                BoxCollider collider1 = newObject.AddComponent<BoxCollider>();
+                collider1.size = new Vector3(coliderSize, coliderSize, coliderSize);
+                newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                newObject2.transform.Rotate(90, 0, 0);
+                newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
+            }
+            */
+
+            if (objectToGenerate == 6)
+            {
+                GameObject newObject = Instantiate(ufo, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                BoxCollider collider1 = newObject.AddComponent<BoxCollider>();
+                collider1.size = new Vector3(coliderSize, coliderSize, coliderSize);
+                newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                newObject2.transform.Rotate(90, 0, 0);
+                newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
+            }
+
+            if (objectToGenerate == 7)
+            {
+                GameObject newObject = Instantiate(insel, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                BoxCollider collider1 = newObject.AddComponent<BoxCollider>();
+                collider1.size = new Vector3(coliderSize, coliderSize, coliderSize);
+                newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                newObject2.transform.Rotate(90, 0, 0);
+                newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
+            }
+
+            if (objectToGenerate == 8)
+            {
+                GameObject newObject = Instantiate(uboot, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                BoxCollider collider1 = newObject.AddComponent<BoxCollider>();
+                collider1.size = new Vector3(coliderSize, coliderSize, coliderSize);
+                newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
+                GameObject newObject2 = Instantiate(flames, center + new Vector3(xPos, yPos - 115, zPos), Quaternion.identity);
+                newObject2.transform.Rotate(90, 0, 0);
+                newObject2.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
+            }
+
+            if (objectToGenerate == 9)
+            {
+                GameObject newObject = Instantiate(tower, center + new Vector3(xPos, yPos, zPos), Quaternion.identity);
                 BoxCollider collider1 = newObject.AddComponent<BoxCollider>();
                 collider1.size = new Vector3(coliderSize, coliderSize, coliderSize);
                 newObject.transform.localScale = new Vector3(objectSize, objectSize, objectSize);
