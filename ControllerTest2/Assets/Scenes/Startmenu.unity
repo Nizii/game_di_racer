@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24229944, g: 0.058937445, b: 0.2772751, a: 1}
+  m_IndirectSpecularColor: {r: 0.2422049, g: 0.05906163, b: 0.277376, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Supersonic speed Racing
+  m_text: Supersonic Bridge Racing
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48fbaec74225f6f409b797d356243b87, type: 2}
   m_sharedMaterial: {fileID: -6855170746424654616, guid: 48fbaec74225f6f409b797d356243b87, type: 2}
@@ -665,7 +665,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447104498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -697,7 +697,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1447104501}
   m_OnClick:
     m_PersistentCalls:
@@ -902,7 +902,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447104498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 185735d5b6288ef4ebd4d5948834edca, type: 2}
   m_CullingMode: 0
@@ -1120,7 +1120,7 @@ MonoBehaviour:
   hoverSound: {fileID: 1447104504}
   clickSound: {fileID: 1447104504}
   click: {fileID: 8300000, guid: 48958153d9acc804290575c36bf8976e, type: 3}
-  clickHover: {fileID: 8300000, guid: 4455dbbd5a57dc046a591b8ce9ade639, type: 3}
+  clickHover: {fileID: 8300000, guid: 9f2ad25f8051d1c499284db1cf6145f9, type: 3}
 --- !u!1 &1830168479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830168479}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -1203,7 +1203,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1830168482}
   m_OnClick:
     m_PersistentCalls:
@@ -1408,7 +1408,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830168479}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 185735d5b6288ef4ebd4d5948834edca, type: 2}
   m_CullingMode: 0

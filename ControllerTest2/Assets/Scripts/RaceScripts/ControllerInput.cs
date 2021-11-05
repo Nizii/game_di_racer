@@ -34,7 +34,7 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller1"",
+                    ""groups"": """",
                     ""action"": ""RacerMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -58,10 +58,10 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b3640d2e-0824-4bf8-b76b-983190de8ff6"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller2"",
+                    ""groups"": """",
                     ""action"": ""TrackerMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -156,35 +156,7 @@ public class @ControllerInput : IInputActionCollection, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": [
-        {
-            ""name"": ""Controller1"",
-            ""bindingGroup"": ""Controller1"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Controller2"",
-            ""bindingGroup"": ""Controller2"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                },
-                {
-                    ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": true,
-                    ""isOR"": false
-                }
-            ]
-        }
-    ]
+    ""controlSchemes"": []
 }");
         // Racer
         m_Racer = asset.FindActionMap("Racer", throwIfNotFound: true);
@@ -357,24 +329,6 @@ public class @ControllerInput : IInputActionCollection, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
-    private int m_Controller1SchemeIndex = -1;
-    public InputControlScheme Controller1Scheme
-    {
-        get
-        {
-            if (m_Controller1SchemeIndex == -1) m_Controller1SchemeIndex = asset.FindControlSchemeIndex("Controller1");
-            return asset.controlSchemes[m_Controller1SchemeIndex];
-        }
-    }
-    private int m_Controller2SchemeIndex = -1;
-    public InputControlScheme Controller2Scheme
-    {
-        get
-        {
-            if (m_Controller2SchemeIndex == -1) m_Controller2SchemeIndex = asset.FindControlSchemeIndex("Controller2");
-            return asset.controlSchemes[m_Controller2SchemeIndex];
-        }
-    }
     public interface IRacerActions
     {
         void OnRacerMove(InputAction.CallbackContext context);
