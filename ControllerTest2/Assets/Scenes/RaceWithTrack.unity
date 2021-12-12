@@ -340,6 +340,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 523542681}
     - target: {fileID: 170910938591995455, guid: 9cae7cbae2c81244fa021eb8d27da2eb, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 170910938591995455, guid: 9cae7cbae2c81244fa021eb8d27da2eb, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 315574439}
