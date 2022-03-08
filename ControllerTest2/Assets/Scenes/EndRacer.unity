@@ -303,7 +303,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e408c1161c710a54bb00fa1bbce3984c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.74
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSound: {fileID: 578363234}
-  click: {fileID: 8300000, guid: 48958153d9acc804290575c36bf8976e, type: 3}
+  click: {fileID: 8300000, guid: 4613b0297bc23824c839756334cc61c7, type: 3}
 --- !u!82 &578363236
 AudioSource:
   m_ObjectHideFlags: 0
@@ -411,7 +411,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 28ef0b729a9d2f94ba3e55c66ba85ddf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 896f0e2f50062cc4ab8959494504bd9d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -556,7 +556,7 @@ MonoBehaviour:
     m_ActionName: Menu/Enter[/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 92958315-dc47-4668-aaf7-c5259fcb980b
+  m_DefaultActionMap: Menu
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &688351956

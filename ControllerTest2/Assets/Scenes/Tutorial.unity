@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2422049, g: 0.05906163, b: 0.277376, a: 1}
+  m_IndirectSpecularColor: {r: 0.24229944, g: 0.058937445, b: 0.2772751, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSound: {fileID: 1485658651}
-  click: {fileID: 8300000, guid: 48958153d9acc804290575c36bf8976e, type: 3}
+  click: {fileID: 8300000, guid: 4613b0297bc23824c839756334cc61c7, type: 3}
 --- !u!82 &1485658651
 AudioSource:
   m_ObjectHideFlags: 0
